@@ -1,6 +1,6 @@
 import styles from './Post.module.css';
 
-function Post() {
+function Post(props) {
   return (
     <div className={styles.post}>
       <img
@@ -8,7 +8,8 @@ function Post() {
         src="https://cs4.pikabu.ru/post_img/big/2015/03/20/6/1426840578_1215893866.jpeg"
         alt=""
       />
-      <div>Мой пост</div>
+      <div>{props.message}</div>
+      <div>likes: {props.likesCount} </div>
     </div>
   );
 }
