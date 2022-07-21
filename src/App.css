@@ -12,7 +12,7 @@
 
 .header {
   grid-area: header;
-  background-color: aquamarine;
+  background-color: rgb(124, 121, 115);
 }
 
 .header img {
@@ -21,7 +21,7 @@
 }
 
 .nav {
-  background-color: aqua;
+  background-color: rgb(124, 121, 115);
   grid-area: nav;
 }
 
@@ -43,7 +43,7 @@
   text-decoration: none;
 }
 
-.content {
-  background-color: blueviolet;
+.profile {
+  background-color: rgb(193, 193, 193);
   grid-area: content;
 }
