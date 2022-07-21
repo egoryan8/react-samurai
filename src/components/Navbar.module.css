@@ -1,0 +1,23 @@
+.nav {
+  background-color: rgb(124, 121, 115);
+  grid-area: nav;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.list li:last-child {
+  margin-top: 50px;
+}
+
+.list a {
+  color: white;
+  text-decoration: none;
+}
