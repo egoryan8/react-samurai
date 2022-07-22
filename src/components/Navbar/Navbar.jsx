@@ -6,19 +6,19 @@ function Navbar() {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <a href="#a">Profile</a>
+          <a href="/profile">Profile</a>
         </li>
         <li>
-          <a href="#a">Messages</a>
+          <a href="/messages">Messages</a>
         </li>
         <li>
-          <a href="#a">News</a>
+          <a href="/news">News</a>
         </li>
         <li>
-          <a href="#a">Music</a>
+          <a href="/music">Music</a>
         </li>
         <li>
-          <a href="#a">Settings</a>
+          <a href="/settings">Settings</a>
         </li>
       </ul>
     </nav>
