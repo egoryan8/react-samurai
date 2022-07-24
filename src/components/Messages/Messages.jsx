@@ -2,39 +2,38 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Messages.module.css';
 
+function DialogItem(props) {
+  return (
+    <NavLink to={'/messages/' + props.id} className={styles.dialog}>
+      {props.name}
+    </NavLink>
+  )
+}
+
+function MessageItem(props) {
+  return (
+    <div className={styles.message}>
+      {props.message}
+    </div>
+  )
+}
+
 function Messages() {
   return <div className={styles.dialogsWrapper}>
-    <ul className={styles.dialogs}>
+    <div className={styles.dialogs}>
       <p>DIALOGS</p>
-      <NavLink to='/messages/1' className={styles.dialog}>
-        Andrew
-      </NavLink>
-      <NavLink to='/messages/2' className={`${styles.dialog} ${styles.active}`}>
-        Egor
-      </NavLink>
-      <NavLink to='/messages/3' className={styles.dialog}>
-        Denis
-      </NavLink>
-      <NavLink to='/messages/4' className={styles.dialog}>
-        Ivan
-      </NavLink>
-      <NavLink to='/messages/5' className={styles.dialog}>
-        Ilya
-      </NavLink>
-    </ul>
+      <DialogItem name="Andrew" id="1"/>
+      <DialogItem name="Egor" id="2"/>
+      <DialogItem name="Denis" id="3"/>
+      <DialogItem name="Ivan" id="4"/>
+      <DialogItem name="Ilya" id="5"/>
+    </div>
     <div className={styles.messages}>
-      <div className={styles.message}>
-        Whatsapp, how are u bro?
-      </div>
-      <div className={styles.message}>
-        Yo bro are u ok?
-      </div>
-      <div className={styles.message}>
-        Im glad to see you
-      </div>
-      <div className={styles.message}>
-        Im too 
-      </div>
+      <MessageItem message='Hey, how are u?'/>
+      <MessageItem message='Whatsapp bro!'/>
+      <MessageItem message='Im glad to write u?'/>
+      <MessageItem message='Im too'/>
+      <MessageItem message='U are very cute! :3'/>
     </div>
   </div>;
 }
