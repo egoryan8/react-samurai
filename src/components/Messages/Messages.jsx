@@ -1,25 +1,26 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Messages.module.css';
 
 function Messages() {
   return <div className={styles.dialogsWrapper}>
     <ul className={styles.dialogs}>
       <p>DIALOGS</p>
-      <li className={styles.dialog}>
+      <NavLink to='/messages/1' className={styles.dialog}>
         Andrew
-      </li>
-      <li className={`${styles.dialog} ${styles.active}`}>
+      </NavLink>
+      <NavLink to='/messages/2' className={`${styles.dialog} ${styles.active}`}>
         Egor
-      </li>
-      <li className={styles.dialog}>
+      </NavLink>
+      <NavLink to='/messages/3' className={styles.dialog}>
         Denis
-      </li>
-      <li className={styles.dialog}>
+      </NavLink>
+      <NavLink to='/messages/4' className={styles.dialog}>
         Ivan
-      </li>
-      <li className={styles.dialog}>
+      </NavLink>
+      <NavLink to='/messages/5' className={styles.dialog}>
         Ilya
-      </li>
+      </NavLink>
     </ul>
     <div className={styles.messages}>
       <div className={styles.message}>
