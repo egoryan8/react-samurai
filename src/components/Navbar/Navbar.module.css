@@ -17,7 +17,18 @@
   margin-top: 50px;
 }
 
-.list a {
+.link {
   color: white;
   text-decoration: none;
+  transition: all .4s;
+}
+
+.link:hover {
+
+  color: blueviolet;
+}
+
+.link_active {
+  text-decoration: none;
+  color: blueviolet;
 }
