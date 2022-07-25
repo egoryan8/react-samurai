@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 
-function Profile() {
+function Profile(props) {
   return (
     <>
       <div>
@@ -12,7 +12,7 @@ function Profile() {
         />
       </div>
       <div>ava + description</div>
-      <MyPosts />
+      <MyPosts postsData={props.postsData}/>
     </>
   );
 }
