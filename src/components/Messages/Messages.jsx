@@ -18,22 +18,36 @@ function MessageItem(props) {
   )
 }
 
+const dialogsData = [
+  { id: 1, name: 'Andrew'},
+  { id: 2, name: 'Egor'},
+  { id: 3, name: 'Denis'},
+  { id: 4, name: 'Ivan'},
+  { id: 5, name: 'Ilya'},
+]
+
+const messagesData = [
+  {id: 1, message: 'Hey, how are u?'},
+  {id: 2, message: 'Whatsapp bro!'},
+  {id: 3, message: 'Im glad to write u'},
+  {id: 4, message: 'Im too'},
+  {id: 5, message: 'U are very cute! :3'},
+]
+
 function Messages() {
   return <div className={styles.dialogsWrapper}>
     <div className={styles.dialogs}>
       <p>DIALOGS</p>
-      <DialogItem name="Andrew" id="1"/>
-      <DialogItem name="Egor" id="2"/>
-      <DialogItem name="Denis" id="3"/>
-      <DialogItem name="Ivan" id="4"/>
-      <DialogItem name="Ilya" id="5"/>
+      <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+      <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+      <DialogItem name={dialogsData[2].name} id={dialogsData[2].id}/>
     </div>
     <div className={styles.messages}>
-      <MessageItem message='Hey, how are u?'/>
-      <MessageItem message='Whatsapp bro!'/>
-      <MessageItem message='Im glad to write u?'/>
-      <MessageItem message='Im too'/>
-      <MessageItem message='U are very cute! :3'/>
+      <MessageItem message={messagesData[0].message}/>
+      <MessageItem message={messagesData[1].message}/>
+      <MessageItem message={messagesData[2].message}/>
+      <MessageItem message={messagesData[3].message}/>
+      <MessageItem message={messagesData[4].message}/>
     </div>
   </div>;
 }
