@@ -12,7 +12,7 @@ function Profile(props) {
         />
       </div>
       <div>ava + description</div>
-      <MyPosts postsData={props.postsData}/>
+      <MyPosts postsData={props.state.postsData}/>
     </>
   );
 }
