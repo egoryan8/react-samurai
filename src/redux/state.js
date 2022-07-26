@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from '../render';
+
 let state = {
   profile: {
     postsData: [
@@ -5,6 +7,7 @@ let state = {
       { id: 2, message: 'Hello, World', likesCount: 10 },
       { id: 1, message: 'Its my first post!', likesCount: 3 },
     ],
+    newPostText: 'Example of post',
   },
   messages: {
     messagesData: [
@@ -31,6 +34,11 @@ export const addPost = (message) => {
     likesCount: 0,
   };
   state.profile.postsData.unshift(newPost);
+  rerenderEntireTree(state);
 };
 
+export const updateNewPostText = (newText) => {
+  state.profile.newPostText = newText;
+  rerenderEntireTree(state);
+};
 export default state;

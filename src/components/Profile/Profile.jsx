@@ -13,7 +13,12 @@ function Profile(props) {
         />
       </div>
       <div>ava + description</div>
-      <MyPosts postsData={props.state.postsData} addPost={props.addPost} />
+      <MyPosts
+        postsData={props.state.postsData}
+        addPost={props.addPost}
+        newPostText={props.state.newPostText}
+        updateNewPostText={props.updateNewPostText}
+      />
     </>
   );
 }
