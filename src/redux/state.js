@@ -27,13 +27,14 @@ let state = {
   },
 };
 
-export const addPost = (message) => {
+export const addPost = () => {
   const newPost = {
     id: 6,
-    message,
+    message: state.profile.newPostText,
     likesCount: 0,
   };
   state.profile.postsData.unshift(newPost);
+  state.profile.newPostText = '';
   rerenderEntireTree(state);
 };
 
