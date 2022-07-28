@@ -2,10 +2,10 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
 import styles from './Messages.module.css';
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messages-reducer";
 
 function Messages(props) {
-  const dialogElements = props.state.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/> )
+  const dialogElements = props.state.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
   const messageElements = props.state.messagesData.map(message => <MessageItem message={message.message}/>)
 
   const newMessageElement = React.createRef();
@@ -21,7 +21,7 @@ function Messages(props) {
   };
 
   const onEnterPress = (e) => {
-    if (e.keyCode == 13 && e.shiftKey == false) {
+    if (e.keyCode === 13 && e.shiftKey === false) {
       addMessage(e);
     }
   }

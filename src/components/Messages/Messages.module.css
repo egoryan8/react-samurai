@@ -1,7 +1,7 @@
 .dialogsWrapper {
   display: grid;
   grid-template-columns: 2fr 10fr;
-  padding: 0px 0 40px;
+  padding: 0 0 40px;
 }
 
 .dialogs {
@@ -20,11 +20,11 @@
 }
 
 .dialog:hover {
-  color:blueviolet;
+  color: blueviolet;
 }
 
 .dialog.active {
-  color:blueviolet;
+  color: blueviolet;
 }
 
 .dialogs p {
