@@ -2,22 +2,21 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
 import styles from './Messages.module.css';
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messages-reducer";
 
 function Messages(props) {
-  const dialogElements = props.state.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
-  const messageElements = props.state.messagesData.map(message => <MessageItem message={message.message}/>)
+  const dialogElements = props.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
+  const messageElements = props.messagesData.map(message => <MessageItem message={message.message}/>)
 
   const newMessageElement = React.createRef();
 
   const addMessage = (e) => {
     e.preventDefault();
-    props.dispatch(addMessageActionCreator());
+    props.addMessage();
   };
 
   const onMessageChange = () => {
     const text = newMessageElement.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(text))
+    props.updateNewMessageText(text);
   };
 
   const onEnterPress = (e) => {
@@ -37,7 +36,7 @@ function Messages(props) {
         <textarea onChange={onMessageChange}
                   placeholder={'Введите сообщение'}
                   ref={newMessageElement}
-                  value={props.state.newMessageText}
+                  value={props.newMessageText}
                   onKeyDown={onEnterPress}>
         </textarea>
         <button>Отправить</button>
