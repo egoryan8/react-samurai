@@ -6,7 +6,7 @@ const store = {
         { id: 2, message: 'Hello, World', likesCount: 10 },
         { id: 1, message: 'Its my first post!', likesCount: 3 },
       ],
-      newPostText: 'Example of post',
+      newPostText: '',
     },
     messages: {
       messagesData: [
@@ -23,6 +23,7 @@ const store = {
         { id: 4, name: 'Ivan' },
         { id: 5, name: 'Ilya' },
       ],
+      newMessageText: '',
     },
   },
   _callSubscriber() {
@@ -46,8 +47,19 @@ const store = {
       this._state.profile.postsData.unshift(newPost);
       this._state.profile.newPostText = '';
       this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    }
+    else if (action.type === 'UPDATE-POST-TEXT') {
       this._state.profile.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'ADD-MESSAGE') {
+      const newMessage = { id: 6, message: this._state.messages.newMessageText };
+      this._state.messages.messagesData.push(newMessage);
+      this._state.messages.newMessageText = '';
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'UPDATE-MESSAGE-TEXT') {
+      this._state.messages.newMessageText = action.newText;
       this._callSubscriber(this._state);
     }
   },
@@ -58,6 +70,10 @@ export default store;
 export const addPostActionCreator = () => ({ type: 'ADD-POST' });
 
 export const updateNewPostTextActionCreator = (text) => ({
-  type: 'UPDATE-NEW-POST-TEXT',
+  type: 'UPDATE-POST-TEXT',
   newText: text,
 });
+
+export const addMessageActionCreator = () => ({ type: 'ADD-MESSAGE'});
+
+export const updateNewMessageTextActionCreator = (text) => ({ type: 'UPDATE-MESSAGE-TEXT', newText: text });

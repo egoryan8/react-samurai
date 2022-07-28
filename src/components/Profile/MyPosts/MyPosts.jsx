@@ -10,7 +10,8 @@ function MyPosts(props) {
 
   const newPostElement = React.createRef();
 
-  const addPost = () => {
+  const addPost = (e) => {
+    e.preventDefault();
     props.dispatch(addPostActionCreator());
   };
 
@@ -19,13 +20,24 @@ function MyPosts(props) {
     props.dispatch(updateNewPostTextActionCreator(text));
   };
 
+  const onEnterPress = (e) => {
+    if (e.keyCode == 13 && e.shiftKey == false) {
+      addPost(e);
+    }
+  }
+
   return (
     <div>
       My posts
-      <div>
-        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
-        <button onClick={addPost}>Add Post</button>
-      </div>
+      <form onSubmit={addPost} className={styles.form}>
+        <textarea
+          onChange={onPostChange}
+          ref={newPostElement}
+          value={props.newPostText}
+          placeholder={'Введите текст поста'}
+          onKeyDown={onEnterPress}/>
+        <button>Add Post</button>
+      </form>
       <div className={styles.posts}>{postElements}</div>
     </div>
   );
