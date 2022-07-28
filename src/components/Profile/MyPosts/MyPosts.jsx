@@ -15,7 +15,8 @@ function MyPosts(props) {
 
   const onPostChange = () => {
     const text = newPostElement.current.value;
-    props.dispatch(updateNewPostTextActionCreator(text));
+    const action = updateNewPostTextActionCreator(text)
+    props.dispatch(action);
   };
 
   const onEnterPress = (e) => {
@@ -37,6 +38,7 @@ function MyPosts(props) {
       </form>
       <div className={styles.posts}>{postElements}</div>
     </div>);
+
 }
 
 export default MyPosts;
