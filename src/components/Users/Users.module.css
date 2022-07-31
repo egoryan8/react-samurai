@@ -1,0 +1,75 @@
+.users {
+  padding: 25px;
+}
+
+.heading {
+  margin: 0 0 40px;
+  font-weight: 600;
+}
+
+.wrapper {
+  width: 60%;
+  display: grid;
+  grid-template-columns: 3fr 10fr;
+  padding: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.avatarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.userInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  background-color: blueviolet;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.userInfo h3 {
+  margin: 0 0 7px;
+  font-weight: 500;
+}
+
+.userInfo p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.location p {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.buttonFollow {
+  border: 0;
+  padding: 5px 15px;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 80px;
+}
+
+.buttonUnfollow {
+  border: 0;
+  padding: 5px 15px;
+  background-color: rgb(93, 92, 92);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 80px;
+}

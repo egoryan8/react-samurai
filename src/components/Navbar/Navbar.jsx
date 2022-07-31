@@ -7,19 +7,46 @@ function Navbar() {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <NavLink to="/profile" className={ navData => navData.isActive ? styles.link_active : styles.link}>Profile</NavLink>
+          <NavLink
+            to="/profile"
+            className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
+            Profile
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/messages" className={ navData => navData.isActive ? styles.link_active : styles.link}>Messages</NavLink>
+          <NavLink
+            to="/messages"
+            className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
+            Messages
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/news" className={navData => navData.isActive ? styles.link_active : styles.link}>News</NavLink>
+          <NavLink
+            to="/news"
+            className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
+            News
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/music" className={navData => navData.isActive ? styles.link_active : styles.link}>Music</NavLink>
+          <NavLink
+            to="/music"
+            className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
+            Music
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/settings" className={navData => navData.isActive ? styles.link_active : styles.link}>Settings</NavLink>
+          <NavLink
+            to="/users"
+            className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
+            Find users
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/settings"
+            className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
+            Settings
+          </NavLink>
         </li>
       </ul>
     </nav>

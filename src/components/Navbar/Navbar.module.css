@@ -13,18 +13,18 @@
   margin-bottom: 10px;
 }
 
-.list li:last-child {
+.list li:last-child,
+.list li:nth-child(5) {
   margin-top: 50px;
 }
 
 .link {
   color: white;
   text-decoration: none;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .link:hover {
-
   color: blueviolet;
 }
 
