@@ -1,6 +1,10 @@
 const initialState = {
   users: [],
+  pageSize: 10,
+  totalUsers: 150,
+  currentPage: 1,
 };
+
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'TOGGLE-FOLLOW':
@@ -15,7 +19,11 @@ const usersReducer = (state = initialState, action) => {
       };
 
     case 'SET-USERS':
-      return { ...state, users: [...state.users, ...action.users] };
+      return { ...state, users: action.users };
+    case 'SET-CURRENT-PAGE':
+      return { ...state, currentPage: action.currentPage };
+    case 'SET-USERS-COUNT':
+      return { ...state, totalUsers: action.usersCount };
     default:
       return state;
   }
@@ -23,5 +31,7 @@ const usersReducer = (state = initialState, action) => {
 
 export const toggleFollowAC = (userId) => ({ type: 'TOGGLE-FOLLOW', userId });
 export const setUsersAC = (users) => ({ type: 'SET-USERS', users });
+export const setCurrentPageAC = (currentPage) => ({ type: 'SET-CURRENT-PAGE', currentPage });
+export const setCountUsersAC = (usersCount) => ({ type: 'SET-USERS-COUNT', usersCount });
 
 export default usersReducer;

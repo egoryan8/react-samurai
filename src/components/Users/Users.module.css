@@ -1,9 +1,13 @@
 .users {
   padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading {
-  margin: 0 0 40px;
+  align-self: start;
+  margin: 0 0 10px;
   font-weight: 600;
 }
 
@@ -73,4 +77,25 @@
   border-radius: 10px;
   cursor: pointer;
   width: 80px;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.pages span {
+  transition: transform 0.2s;
+}
+
+.pages span:hover {
+  transform: scale(1.8);
+}
+
+.selectedPage {
+  font-weight: bold;
+  color: blueviolet;
 }
