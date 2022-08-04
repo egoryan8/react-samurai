@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Users.module.css';
 import userAvatar from './user.png';
-import { setCurrentPageAC } from '../../redux/users-reducer';
 
 function Users(props) {
   let pagesCount = Math.ceil(props.totalUsers / props.pageSize);

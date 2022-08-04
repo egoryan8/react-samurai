@@ -4,11 +4,11 @@ import Users from './Users';
 import { connect } from 'react-redux/es/exports';
 
 import {
-  toggleFollowAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setCountUsersAC,
-  setIsFetchingAC,
+  toggleFollow,
+  setUsers,
+  setCurrentPage,
+  setCountUsers,
+  setIsFetching,
 } from '../../redux/users-reducer';
 import Preloader from '../Preloader/Preloader';
 
@@ -67,18 +67,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleFollow: (userId) => dispatch(toggleFollowAC(userId)),
-
-    setUsers: (users) => dispatch(setUsersAC(users)),
-
-    setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-
-    setCountUsers: (totalUsers) => dispatch(setCountUsersAC(totalUsers)),
-
-    setIsFetching: (isFetching) => dispatch(setIsFetchingAC(isFetching)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
+export default connect(mapStateToProps, {
+  toggleFollow,
+  setUsers,
+  setCurrentPage,
+  setCountUsers,
+  setIsFetching,
+})(UsersAPI);
