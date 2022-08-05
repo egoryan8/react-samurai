@@ -1,0 +1,27 @@
+import React from 'react';
+import Preloader from '../../Preloader/Preloader';
+import styles from './ProfileInfo.module.css';
+
+function ProfileInfo(props) {
+  if (!props.profile) {
+    return <Preloader />;
+  }
+  return (
+    <>
+      <div>
+        <img
+          className={styles.img}
+          src="https://images.unsplash.com/photo-1658144492483-912cc8f969b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+          alt=""
+        />
+      </div>
+      <div className={styles.container}>
+        <img src={props.profile.photos.large} alt="Аватарка" className={styles.ava} />
+        <h1>{props.profile.fullName}</h1>
+        <p>{props.profile.aboutMe}</p>
+      </div>
+    </>
+  );
+}
+
+export default ProfileInfo;

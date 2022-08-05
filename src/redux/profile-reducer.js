@@ -5,6 +5,7 @@ const initialState = {
     { id: 1, message: 'Its my first post!', likesCount: 3 },
   ],
   newPostText: '',
+  profile: null,
 };
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,6 +27,9 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.newText,
       };
 
+    case 'SET-PROFILE':
+      return { ...state, profile: action.profile };
+
     default:
       return state;
   }
@@ -39,3 +43,5 @@ export const updateNewPostTextActionCreator = (text) => ({
   type: 'UPDATE-POST-TEXT',
   newText: text,
 });
+
+export const setProfile = (profile) => ({ type: 'SET-PROFILE', profile });

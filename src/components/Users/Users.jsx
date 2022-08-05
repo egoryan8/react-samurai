@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Users.module.css';
 import userAvatar from './user.png';
+import { Link } from 'react-router-dom';
 
 function Users(props) {
   let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
@@ -26,12 +27,14 @@ function Users(props) {
       {props.users.map((user) => (
         <div key={user.id} className={styles.wrapper}>
           <div className={styles.avatarWrapper}>
-            <img
-              src={user.photos.small !== null ? user.photos.small : userAvatar}
-              alt="Avatar"
-              width={50}
-              className={styles.avatar}
-            />
+            <Link to={'/profile/' + user.id}>
+              <img
+                src={user.photos.small !== null ? user.photos.small : userAvatar}
+                alt="Avatar"
+                width={50}
+                className={styles.avatar}
+              />
+            </Link>
             {user.followed ? (
               <button
                 onClick={() => {
