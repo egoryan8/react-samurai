@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
+import userAvatarDefault from '../../Users/user.png';
 
 function ProfileInfo(props) {
   if (!props.profile) {
@@ -16,9 +17,15 @@ function ProfileInfo(props) {
         />
       </div>
       <div className={styles.container}>
-        <img src={props.profile.photos.large} alt="Аватарка" className={styles.ava} />
-        <h1>{props.profile.fullName}</h1>
-        <p>{props.profile.aboutMe}</p>
+        <img
+          src={props.profile.photos.large || userAvatarDefault}
+          alt="Аватарка"
+          className={styles.ava}
+        />
+        <div className={styles.textContainer}>
+          <h1 className={styles.name}>{props.profile.fullName}</h1>
+          <p className={styles.status}>{props.profile.aboutMe}</p>
+        </div>
       </div>
     </>
   );

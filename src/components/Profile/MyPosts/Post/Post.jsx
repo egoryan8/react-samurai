@@ -1,4 +1,5 @@
 import styles from './Post.module.css';
+import like from './like.svg';
 
 function Post(props) {
   return (
@@ -9,7 +10,10 @@ function Post(props) {
         alt=""
       />
       <div>{props.message}</div>
-      <div>likes: {props.likesCount} </div>
+      <div className={styles.likewrapper}>
+        <img src={like} className={styles.like} />
+        {props.likesCount}{' '}
+      </div>
     </div>
   );
 }

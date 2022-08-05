@@ -6,6 +6,8 @@
   border: 1px solid grey;
   padding: 10px;
   border-radius: 8px;
+  width: 50%;
+  justify-content: space-between;
 }
 
 .img {
@@ -13,4 +15,15 @@
   height: 40px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.like {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.likewrapper {
+  width: 40px;
+  display: flex;
+  align-items: center;
 }

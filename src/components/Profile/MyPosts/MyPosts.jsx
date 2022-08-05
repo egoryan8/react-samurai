@@ -26,20 +26,22 @@ function MyPosts(props) {
   };
 
   return (
-    <div>
-      My posts
-      <form onSubmit={addPost} className={styles.form}>
-        <textarea
-          onChange={onPostChange}
-          ref={newPostElement}
-          value={props.newPostText}
-          placeholder={'Введите текст поста'}
-          onKeyDown={onEnterPress}
-        />
-        <button>Add Post</button>
-      </form>
-      <div className={styles.posts}>{postElements}</div>
-    </div>
+    <>
+      <div className={styles.container}>
+        <form onSubmit={addPost} className={styles.form}>
+          <h3 className={styles.addPost}>ДОБАВИТЬ ПОСТ</h3>
+          <textarea
+            onChange={onPostChange}
+            ref={newPostElement}
+            value={props.newPostText}
+            placeholder={'Введите текст поста'}
+            onKeyDown={onEnterPress}
+          />
+          <button>Add Post</button>
+        </form>
+        <div className={styles.posts}>{postElements}</div>
+      </div>
+    </>
   );
 }
 
