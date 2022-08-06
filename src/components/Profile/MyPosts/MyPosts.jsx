@@ -30,14 +30,16 @@ function MyPosts(props) {
       <div className={styles.container}>
         <form onSubmit={addPost} className={styles.form}>
           <h3 className={styles.addPost}>ДОБАВИТЬ ПОСТ</h3>
+
           <textarea
             onChange={onPostChange}
             ref={newPostElement}
             value={props.newPostText}
             placeholder={'Введите текст поста'}
             onKeyDown={onEnterPress}
+            className={styles.textarea}
           />
-          <button>Add Post</button>
+          <button className={styles.button}>✅</button>
         </form>
         <div className={styles.posts}>{postElements}</div>
       </div>
