@@ -6,7 +6,6 @@ import axios from 'axios';
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
       .then((res) => {

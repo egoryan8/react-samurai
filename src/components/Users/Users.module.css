@@ -69,6 +69,11 @@
   width: 80px;
 }
 
+.buttonFollow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .buttonUnfollow {
   border: 0;
   padding: 5px 15px;
@@ -77,6 +82,11 @@
   border-radius: 10px;
   cursor: pointer;
   width: 80px;
+}
+
+.buttonUnfollow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .pages {
