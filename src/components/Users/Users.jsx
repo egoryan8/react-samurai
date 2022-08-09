@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Users.module.css';
 import userAvatar from './user.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Users(props) {
   let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
@@ -38,7 +39,18 @@ function Users(props) {
             {user.followed ? (
               <button
                 onClick={() => {
-                  props.toggleFollow(user.id);
+                  axios
+                    .delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                      withCredentials: true,
+                      headers: {
+                        'API-KEY': '1a7cbd8c-f6a1-43d8-b79f-b530c2951bb4',
+                      },
+                    })
+                    .then((res) => {
+                      if (res.data.resultCode === 0) {
+                        props.toggleFollow(user.id);
+                      }
+                    });
                 }}
                 className={styles.buttonUnfollow}>
                 Unfollow
@@ -46,7 +58,22 @@ function Users(props) {
             ) : (
               <button
                 onClick={() => {
-                  props.toggleFollow(user.id);
+                  axios
+                    .post(
+                      `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+                      {},
+                      {
+                        withCredentials: true,
+                        headers: {
+                          'API-KEY': '1a7cbd8c-f6a1-43d8-b79f-b530c2951bb4',
+                        },
+                      },
+                    )
+                    .then((res) => {
+                      if (res.data.resultCode === 0) {
+                        props.toggleFollow(user.id);
+                      }
+                    });
                 }}
                 className={styles.buttonFollow}>
                 Follow
