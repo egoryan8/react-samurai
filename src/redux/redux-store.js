@@ -2,8 +2,9 @@ import profileReducer from './profile-reducer';
 import messagesReducer from './messages-reducer';
 import usersReducer from './users-reducer';
 import authReducer from './auth-reducer';
+import ThunkMiddleware from 'redux-thunk';
 
-import { combineReducers, legacy_createStore as createStore } from 'redux';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 
 const reducers = combineReducers({
   profileReducer,
@@ -12,7 +13,7 @@ const reducers = combineReducers({
   authReducer,
 });
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(ThunkMiddleware));
 
 export default store;
 window.store = store;

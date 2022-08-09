@@ -12,7 +12,7 @@
 }
 
 .wrapper {
-  width: 60%;
+  width: 100%;
   display: grid;
   grid-template-columns: 3fr 10fr;
   padding: 10px;
@@ -35,11 +35,13 @@
 .userInfoWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px solid gray;
   background-color: blueviolet;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
+  height: 70px;
 }
 
 .userInfo h3 {
