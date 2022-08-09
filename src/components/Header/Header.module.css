@@ -1,9 +1,24 @@
 .header {
   grid-area: header;
   background-color: rgb(124, 121, 115);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header img {
-  width: 60px;
+  width: 50px;
   padding-left: 20px;
+}
+
+.loginWrapper {
+  padding-right: 100px;
+}
+
+.loginWrapper a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  color: blueviolet;
 }

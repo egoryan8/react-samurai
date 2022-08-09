@@ -1,5 +1,5 @@
-import profileReducer from "./profile-reducer";
-import messagesReducer from "./messages-reducer";
+import profileReducer from './profile-reducer';
+import messagesReducer from './messages-reducer';
 
 const store = {
   _state: {
@@ -45,8 +45,7 @@ const store = {
     this._state.messages = messagesReducer(this._state.messages, action);
 
     this._callSubscriber(this._state);
-  }
+  },
 };
 
 export default store;
-
