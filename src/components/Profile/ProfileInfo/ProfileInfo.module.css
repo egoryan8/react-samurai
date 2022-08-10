@@ -18,6 +18,7 @@
 }
 
 .name {
+  width: 150px;
   margin: 0;
   margin-bottom: 10px;
   text-transform: capitalize;
@@ -29,12 +30,11 @@
 }
 
 .status {
+  width: 150px;
   margin: 0;
-  padding: 5px 50px 5px 5px;
-  border: 1px solid gray;
-  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 5px 120px 5px 5px;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .textContainer {

@@ -1,8 +1,10 @@
 import React from 'react';
+import styles from './ProfileInfo.module.css';
 
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
+    status: this.props.status,
   };
 
   activateEditMode() {
@@ -11,23 +13,31 @@ class ProfileStatus extends React.Component {
 
   deactivateEditMode() {
     this.setState({ editMode: false });
+    this.props.updateStatus(this.state.status);
   }
+
+  onStatusChange = (evt) => {
+    this.setState({ status: evt.currentTarget.value });
+  };
 
   render() {
     return (
       <>
         {!this.state.editMode && (
           <div>
-            <span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
+            <span className={styles.status} onDoubleClick={this.activateEditMode.bind(this)}>
+              {this.props.status || 'Установите статус'}
+            </span>
           </div>
         )}
         {this.state.editMode && (
           <div>
             <input
+              onChange={this.onStatusChange}
               autoFocus={true}
               onBlur={this.deactivateEditMode.bind(this)}
               type="text"
-              value={this.props.status}
+              value={this.state.status}
             />
           </div>
         )}

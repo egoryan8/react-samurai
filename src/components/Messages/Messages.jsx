@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
 import styles from './Messages.module.css';

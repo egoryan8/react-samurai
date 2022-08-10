@@ -25,7 +25,11 @@ function ProfileInfo(props) {
         />
         <div className={styles.textContainer}>
           <h1 className={styles.name}>{props.profile.fullName}</h1>
-          <ProfileStatus className={styles.status} status={'Im frontend developer'} />
+          <ProfileStatus
+            className={styles.status}
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
         </div>
       </div>
     </>
