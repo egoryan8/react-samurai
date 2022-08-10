@@ -1,3 +1,5 @@
+import { usersAPI } from '../api/api';
+
 const initialState = {
   postsData: [
     { id: 3, message: 'How are you?', likesCount: 8 },
@@ -45,3 +47,8 @@ export const updateNewPostTextActionCreator = (text) => ({
 });
 
 export const setProfile = (profile) => ({ type: 'SET-PROFILE', profile });
+export const getProfile = (userId) => (dispatch) => {
+  usersAPI.getProfile(userId).then((res) => {
+    dispatch(setProfile(res.data));
+  });
+};
