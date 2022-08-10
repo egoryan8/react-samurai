@@ -30,7 +30,6 @@ function Messages(props) {
     }
   };
 
-  if (!props.isAuth) return <Navigate to="/login" />;
   return (
     <div className={styles.dialogsWrapper}>
       <div className={styles.dialogs}>
