@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
     dialogsData: state.messagesReducer.dialogsData,
     messagesData: state.messagesReducer.messagesData,
     newMessageText: state.messagesReducer.newMessageText,
+    isAuth: state.authReducer.isAuth,
   };
 };
 

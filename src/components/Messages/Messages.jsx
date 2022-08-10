@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
 import styles from './Messages.module.css';
@@ -29,6 +30,7 @@ function Messages(props) {
     }
   };
 
+  if (!props.isAuth) return <Navigate to="/login" />;
   return (
     <div className={styles.dialogsWrapper}>
       <div className={styles.dialogs}>
