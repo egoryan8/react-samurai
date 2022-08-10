@@ -2,6 +2,7 @@ import React from 'react';
 import Preloader from '../../Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
 import userAvatarDefault from '../../Users/user.png';
+import ProfileStatus from './ProfileStatus';
 
 function ProfileInfo(props) {
   if (!props.profile) {
@@ -24,7 +25,7 @@ function ProfileInfo(props) {
         />
         <div className={styles.textContainer}>
           <h1 className={styles.name}>{props.profile.fullName}</h1>
-          <p className={styles.status}>{props.profile.aboutMe}</p>
+          <ProfileStatus className={styles.status} status={'Im frontend developer'} />
         </div>
       </div>
     </>
