@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './Users.module.css';
 import userAvatar from './user.png';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { usersAPI } from '../../api/api';
 
 function Users(props) {
   let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
