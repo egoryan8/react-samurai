@@ -13,7 +13,8 @@ function Header(props) {
       <div className={styles.loginWrapper}>
         {props.isAuth ? (
           <div>
-            {props.login} <button onClick={props.logout}>Выйти</button>{' '}
+            <span className={styles.login}>{props.login}</span>{' '}
+            <button onClick={props.logout}>Выйти</button>{' '}
           </div>
         ) : (
           <NavLink to={'/login'}>Войти</NavLink>

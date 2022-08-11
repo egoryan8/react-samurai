@@ -37,3 +37,9 @@
   background-color: rgb(149, 16, 16);
   color: white;
 }
+
+.login {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}

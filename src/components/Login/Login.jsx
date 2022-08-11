@@ -26,7 +26,6 @@ function LoginForm(props) {
               placeholder={'Email'}
               component={Input}
               validate={required}
-              className={styles.input}
             />
           </div>
           <div className={styles.inputWrapper}>
@@ -36,17 +35,14 @@ function LoginForm(props) {
               placeholder={'Password'}
               component={Input}
               validate={required}
-              className={styles.input}
             />
           </div>
-          <div className={styles.container}>
+          <div className={styles.checkboxWrapper}>
             <Field id="rememberMe" name="rememberMe" type="checkbox" component="input" />
             <label for="rememberMe" className={styles.label}>
               remember me
             </label>
-          </div>
-          <div>
-            <button>Login</button>
+            <button>Войти</button>
           </div>
         </form>
       )}
@@ -60,7 +56,7 @@ function Login(props) {
   }
   return (
     <div className={styles.wrapper}>
-      <h1>LOGIN</h1>
+      <h1>Авторизоваться</h1>
       <LoginForm {...props} />
     </div>
   );
