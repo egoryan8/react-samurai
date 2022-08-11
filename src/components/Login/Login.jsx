@@ -22,7 +22,7 @@ function LoginForm() {
             <label for="rememberMe">remember me</label>
           </div>
           <div>
-            <button type="submit">Login</button>
+            <button>Login</button>
           </div>
         </form>
       )}

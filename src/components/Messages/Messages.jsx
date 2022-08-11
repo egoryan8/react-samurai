@@ -1,3 +1,4 @@
+import { Form, Field } from 'react-final-form';
 import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
@@ -11,16 +12,8 @@ function Messages(props) {
     <MessageItem message={message.message} key={message.id} />
   ));
 
-  const newMessageElement = React.createRef();
-
-  const addMessage = (e) => {
-    e.preventDefault();
-    props.addMessage();
-  };
-
-  const onMessageChange = () => {
-    const text = newMessageElement.current.value;
-    props.updateNewMessageText(text);
+  const addMessage = (formData) => {
+    props.addMessage(formData.message);
   };
 
   const onEnterPress = (e) => {
@@ -37,17 +30,31 @@ function Messages(props) {
       </div>
       <div className={styles.messages}>
         <div>{messageElements}</div>
-        <form onSubmit={addMessage} className={styles.form}>
-          <textarea
-            onChange={onMessageChange}
-            placeholder={'Введите сообщение'}
-            ref={newMessageElement}
-            value={props.newMessageText}
-            onKeyDown={onEnterPress}></textarea>
-          <button>Отправить</button>
-        </form>
+        <AddNewMessageForm onEnterPress={onEnterPress} addMessage={addMessage} />
       </div>
     </div>
+  );
+}
+
+function AddNewMessageForm({ onEnterPress, addMessage }) {
+  const onSubmit = (formData) => {
+    addMessage(formData);
+  };
+  return (
+    <Form
+      onSubmit={onSubmit}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <Field
+            name="message"
+            component="textarea"
+            placeholder={'Введите сообщение'}
+            onKeyDown={onEnterPress}
+          />
+          <button>Отправить</button>
+        </form>
+      )}
+    />
   );
 }
 

@@ -13,7 +13,6 @@ const initialState = {
     { id: 4, name: 'Ivan' },
     { id: 5, name: 'Ilya' },
   ],
-  newMessageText: '',
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -21,25 +20,12 @@ const messagesReducer = (state = initialState, action) => {
     case 'ADD-MESSAGE':
       return {
         ...state,
-        newMessageText: '',
-        messagesData: [...state.messagesData, { id: 6, message: state.newMessageText }],
+        messagesData: [...state.messagesData, { id: 6, message: action.message }],
       };
-
-    case 'UPDATE-MESSAGE-TEXT':
-      return {
-        ...state,
-        newMessageText: action.newText,
-      };
-
     default:
       return state;
   }
 };
 export default messagesReducer;
 
-export const addMessageActionCreator = () => ({ type: 'ADD-MESSAGE' });
-
-export const updateNewMessageTextActionCreator = (text) => ({
-  type: 'UPDATE-MESSAGE-TEXT',
-  newText: text,
-});
+export const addMessageActionCreator = (message) => ({ type: 'ADD-MESSAGE', message });
