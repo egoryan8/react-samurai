@@ -16,7 +16,7 @@ export function withRouter(Children) {
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
-    if (!userId) userId = 25337;
+    if (!userId) userId = this.props.authorizedUserId;
     this.props.getProfile(userId);
     this.props.getStatus(userId);
   }
@@ -36,6 +36,8 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profileReducer.profile,
   status: state.profileReducer.status,
+  authorizedUserId: state.authReducer.userId,
+  isAuth: state.authReducer.isAuth,
 });
 
 export default compose(
