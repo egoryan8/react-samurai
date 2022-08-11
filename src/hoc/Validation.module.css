@@ -1,0 +1,9 @@
+.error {
+  border: 2px solid rgb(184, 9, 9);
+}
+
+.form {
+  width: 100%;
+  height: 60px;
+  resize: none;
+}

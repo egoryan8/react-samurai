@@ -1,6 +1,10 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import styles from './Login.module.css';
+import { required } from '../../utils/validator';
+import Element from '../../hoc/withValidation';
+
+const Input = Element('input');
 
 function LoginForm() {
   const onSubmit = (formData) => {
@@ -11,11 +15,23 @@ function LoginForm() {
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form className={styles.form} onSubmit={handleSubmit}>
-          <div>
-            <Field name="login" placeholder={'Login'} component="input" />
+          <div className={styles.inputWrapper}>
+            <Field
+              name="login"
+              type="text"
+              placeholder={'Login'}
+              component={Input}
+              validate={required}
+            />
           </div>
-          <div>
-            <Field name="password" type="password" placeholder={'Password'} component="input" />
+          <div className={styles.inputWrapper}>
+            <Field
+              name="password"
+              type="password"
+              placeholder={'Password'}
+              component={Input}
+              validate={required}
+            />
           </div>
           <div className={styles.container}>
             <Field id="rememberMe" name="rememberMe" type="checkbox" component="input" />

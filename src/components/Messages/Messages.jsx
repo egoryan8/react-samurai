@@ -3,6 +3,7 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
 import styles from './Messages.module.css';
+import { required } from '../../utils/validator';
 
 function Messages(props) {
   const dialogElements = props.dialogsData.map((dialog) => (
@@ -45,7 +46,12 @@ function AddNewMessageForm({ addMessage }) {
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
-          <Field name="message" component="textarea" placeholder={'Введите сообщение'} />
+          <Field
+            name="message"
+            component="textarea"
+            placeholder={'Введите сообщение'}
+            validate={required}
+          />
           <button>Отправить</button>
         </form>
       )}

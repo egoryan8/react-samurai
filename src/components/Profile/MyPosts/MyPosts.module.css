@@ -6,6 +6,11 @@
   margin-right: 20px;
 }
 
+.form span {
+  font-size: 14px;
+  color: rgb(184, 9, 9);
+}
+
 .container {
   display: flex;
   padding-bottom: 100px;
@@ -34,9 +39,13 @@
 }
 
 .button {
-  background-color: transparent;
+  background-color: blueviolet;
+  color: white;
   border: none;
-  height: 40px;
-  font-size: 25px;
   cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 0;
+  border-radius: 10px;
+  width: 50%;
+  align-self: center;
 }

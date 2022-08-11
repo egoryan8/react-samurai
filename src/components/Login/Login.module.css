@@ -5,3 +5,13 @@
   align-items: center;
   padding: 100px 0 0;
 }
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrapper span {
+  font-size: 12px;
+  color: rgb(184, 9, 9);
+}

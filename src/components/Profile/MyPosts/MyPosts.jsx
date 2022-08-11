@@ -2,6 +2,10 @@ import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 import { Form, Field } from 'react-final-form';
+import { myPostsValidator, required } from '../../../utils/validator';
+import Element from '../../../hoc/withValidation';
+
+const TextArea = Element('textarea');
 
 function MyPosts(props) {
   const postElements = props.postsData.map((post) => (
@@ -38,8 +42,13 @@ function AddPostForm({ addPost }) {
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
           <h3 className={styles.addPost}>ДОБАВИТЬ ПОСТ</h3>
-          <Field name="post" component="textarea" placeholder={'Введите текст поста'} />
-          <button>Добавить пост</button>
+          <Field
+            name="post"
+            component={TextArea}
+            placeholder={'Введите текст поста'}
+            validate={myPostsValidator}
+          />
+          <button className={styles.button}>Добавить пост</button>
         </form>
       )}
     />
