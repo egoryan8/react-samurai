@@ -16,11 +16,11 @@ function Messages(props) {
     props.addMessage(formData.message);
   };
 
-  const onEnterPress = (e) => {
-    if (e.keyCode === 13 && e.shiftKey === false) {
-      addMessage(e);
-    }
-  };
+  // const onEnterPress = (e) => {
+  //   if (e.keyCode === 13 && e.shiftKey === false) {
+  //     addMessage();
+  //   }
+  // };
 
   return (
     <div className={styles.dialogsWrapper}>
@@ -30,13 +30,13 @@ function Messages(props) {
       </div>
       <div className={styles.messages}>
         <div>{messageElements}</div>
-        <AddNewMessageForm onEnterPress={onEnterPress} addMessage={addMessage} />
+        <AddNewMessageForm addMessage={addMessage} />
       </div>
     </div>
   );
 }
 
-function AddNewMessageForm({ onEnterPress, addMessage }) {
+function AddNewMessageForm({ addMessage }) {
   const onSubmit = (formData) => {
     addMessage(formData);
   };
@@ -45,12 +45,7 @@ function AddNewMessageForm({ onEnterPress, addMessage }) {
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
-          <Field
-            name="message"
-            component="textarea"
-            placeholder={'Введите сообщение'}
-            onKeyDown={onEnterPress}
-          />
+          <Field name="message" component="textarea" placeholder={'Введите сообщение'} />
           <button>Отправить</button>
         </form>
       )}
