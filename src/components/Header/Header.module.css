@@ -20,5 +20,20 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  color: blueviolet;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+}
+
+.loginWrapper button {
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: rgb(149, 16, 16);
+  color: white;
 }

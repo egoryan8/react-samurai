@@ -15,3 +15,10 @@
   font-size: 12px;
   color: rgb(184, 9, 9);
 }
+
+.form {
+  width: 20%;
+}
+.input {
+  border: none;
+}

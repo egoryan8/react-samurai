@@ -11,7 +11,13 @@ function Header(props) {
         alt="logo"
       />
       <div className={styles.loginWrapper}>
-        {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+        {props.isAuth ? (
+          <div>
+            {props.login} <button onClick={props.logout}>Выйти</button>{' '}
+          </div>
+        ) : (
+          <NavLink to={'/login'}>Войти</NavLink>
+        )}
       </div>
     </header>
   );
