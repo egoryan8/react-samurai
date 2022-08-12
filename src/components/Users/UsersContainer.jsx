@@ -3,6 +3,15 @@ import Users from './Users';
 import { connect } from 'react-redux/es/exports';
 
 import {
+  getCurrentPage,
+  getIsFetching,
+  getIsFollowing,
+  getPageSize,
+  getTotalUsers,
+  getUsersSelector,
+} from '../../redux/users-selectors';
+
+import {
   follow,
   unfollow,
   setCurrentPage,
@@ -41,14 +50,25 @@ class UsersAPI extends React.Component {
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return {
+//     users: state.usersReducer.users,
+//     pageSize: state.usersReducer.pageSize,
+//     totalUsers: state.usersReducer.totalUsers,
+//     currentPage: state.usersReducer.currentPage,
+//     isFetching: state.usersReducer.isFetching,
+//     isFollowing: state.usersReducer.isFollowing,
+//   };
+// };
+
 const mapStateToProps = (state) => {
   return {
-    users: state.usersReducer.users,
-    pageSize: state.usersReducer.pageSize,
-    totalUsers: state.usersReducer.totalUsers,
-    currentPage: state.usersReducer.currentPage,
-    isFetching: state.usersReducer.isFetching,
-    isFollowing: state.usersReducer.isFollowing,
+    users: getUsersSelector(state),
+    pageSize: getPageSize(state),
+    totalUsers: getTotalUsers(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    isFollowing: getIsFollowing(state),
   };
 };
 

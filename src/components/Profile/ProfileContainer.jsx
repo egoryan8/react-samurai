@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 // import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { withRouter } from '../../hoc/withRouter';
-import { Navigate } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
