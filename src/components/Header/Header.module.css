@@ -15,7 +15,7 @@
   padding-right: 100px;
 }
 
-.loginWrapper a {
+.signIn {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
@@ -42,4 +42,16 @@
   font-weight: 700;
   color: rgb(0, 0, 0);
   text-decoration: underline;
+}
+
+.signUp {
+  margin-left: 10px;
+  background-color: rgb(61, 95, 231);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: white;
 }

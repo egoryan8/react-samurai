@@ -3,12 +3,10 @@ import Preloader from '../../Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
 import userAvatarDefault from '../../Users/user.png';
 import ProfileStatus from './ProfileStatus';
+import { Navigate } from 'react-router-dom';
 
 function ProfileInfo(props) {
-  console.log(props);
-  if (!props.profile) {
-    return <Preloader />;
-  }
+  if (!props.profile) return <Preloader />;
 
   return (
     <>

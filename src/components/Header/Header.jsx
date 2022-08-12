@@ -17,7 +17,17 @@ function Header(props) {
             <button onClick={props.logout}>Выйти</button>{' '}
           </div>
         ) : (
-          <NavLink to={'/login'}>Войти</NavLink>
+          <div>
+            <NavLink to={'/login'} className={styles.signIn}>
+              Войти
+            </NavLink>
+            <a
+              className={styles.signUp}
+              href="https://social-network.samuraijs.com/signUp"
+              target="_blank">
+              зарегестрироваться
+            </a>
+          </div>
         )}
       </div>
     </header>
