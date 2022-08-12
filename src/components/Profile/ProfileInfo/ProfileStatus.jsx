@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ProfileInfo.module.css';
 import edit from './Edit.svg';
 
 function ProfileStatus(props) {
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
+
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
 
   const onStatusChange = (evt) => setStatus(evt.currentTarget.value);
 
