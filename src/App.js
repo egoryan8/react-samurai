@@ -11,8 +11,6 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import Login from './components/Login/Login';
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { withRouter } from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
 import Preloader from './components/Preloader/Preloader';
 
@@ -47,4 +45,4 @@ const mapStateToProps = (state) => ({
   initialized: state.appReducer.initialized,
 });
 
-export default compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
+export default connect(mapStateToProps, { initializeApp })(App);
