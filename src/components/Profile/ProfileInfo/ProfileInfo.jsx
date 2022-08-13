@@ -7,6 +7,12 @@ import ProfileStatus from './ProfileStatus';
 function ProfileInfo(props) {
   if (!props.profile) return <Preloader />;
 
+  const onPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
+
   return (
     <>
       <div>
@@ -17,11 +23,32 @@ function ProfileInfo(props) {
         />
       </div>
       <div className={styles.container}>
-        <img
-          src={props.profile.photos.large || userAvatarDefault}
-          alt="Аватарка"
-          className={styles.ava}
-        />
+        {props.isOwner && (
+          <div className={styles.avaWrapper}>
+            <img
+              src={props.profile.photos.large || userAvatarDefault}
+              alt="Аватарка"
+              className={styles.ava}
+            />
+
+            <input
+              id="uploadAva"
+              name="uploadAva"
+              type="file"
+              onChange={onPhotoSelected}
+              className={styles.avaInput}
+            />
+            <label for="uploadAva" className={styles.avaInputLabel}></label>
+          </div>
+        )}
+        {!props.isOwner && (
+          <img
+            src={props.profile.photos.large || userAvatarDefault}
+            alt="Аватарка"
+            className={styles.ava}
+          />
+        )}
+
         <div className={styles.textContainer}>
           <h1 className={styles.name}>{props.profile.fullName}</h1>
           <ProfileStatus

@@ -5,11 +5,9 @@
 }
 
 .ava {
-  width: 150px;
-  height: 150px;
+  width: 100%;
   object-fit: contain;
   border-radius: 50%;
-  margin-right: 15px;
 }
 
 .container {
@@ -53,4 +51,57 @@
 .editButton:hover {
   opacity: 0.2;
   transform: scale(1.2);
+}
+
+.avaWrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.avaInput {
+  visibility: hidden;
+}
+
+.avaInputLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0px;
+  right: 0px;
+  opacity: 0;
+  visibility: none;
+  border-radius: 50%;
+  background-image: url(./Edit.svg);
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.avaInputLabel:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+
+.avaEdit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 47%;
+}
+
+.avaEdit:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  cursor: pointer;
 }
