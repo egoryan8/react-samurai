@@ -7,9 +7,11 @@ const initialState = {
   isAuth: false,
 };
 
+const SET_USERS_DATA = 'SET_USERS_DATA';
+
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET-USER-DATA':
+    case SET_USERS_DATA:
       return {
         ...state,
         ...action.payload,
@@ -20,7 +22,7 @@ const authReducer = (state = initialState, action) => {
 };
 
 export const setAuthData = (userId, email, login, isAuth) => ({
-  type: 'SET-USER-DATA',
+  type: SET_USERS_DATA,
   payload: { userId, email, login, isAuth },
 });
 

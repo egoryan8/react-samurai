@@ -15,9 +15,11 @@ const initialState = {
   ],
 };
 
+const ADD_MESSAGE = 'ADD_MESSAGE';
+
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD-MESSAGE':
+    case ADD_MESSAGE:
       return {
         ...state,
         messagesData: [...state.messagesData, { id: 6, message: action.message }],
@@ -28,4 +30,4 @@ const messagesReducer = (state = initialState, action) => {
 };
 export default messagesReducer;
 
-export const addMessageActionCreator = (message) => ({ type: 'ADD-MESSAGE', message });
+export const addMessageActionCreator = (message) => ({ type: ADD_MESSAGE, message });

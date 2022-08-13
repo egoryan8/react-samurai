@@ -4,9 +4,11 @@ const initialState = {
   initialized: false,
 };
 
+const SET_INITIALIZED = 'SET_INITIALIZED';
+
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET-INITIALIZED':
+    case SET_INITIALIZED:
       return {
         ...state,
         initialized: true,
@@ -17,7 +19,7 @@ const appReducer = (state = initialState, action) => {
 };
 
 export const setInitialized = () => ({
-  type: 'SET-INITIALIZED',
+  type: SET_INITIALIZED,
 });
 
 export const initializeApp = () => async (dispatch) => {
