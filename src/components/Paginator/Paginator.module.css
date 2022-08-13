@@ -18,3 +18,36 @@
   font-weight: bold;
   color: blueviolet;
 }
+.nextButton {
+  background-color: transparent;
+  border: none;
+  background-image: url(./arrowhead.png);
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+.prevButton {
+  background-color: transparent;
+  border: none;
+  background-image: url(./arrowhead.png);
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: rotate(-180deg);
+  cursor: pointer;
+  align-self: center;
+  transition: opacity 0.4s;
+}
+.prevButton:hover {
+  opacity: 0.3;
+}
+.nextButton:hover {
+  opacity: 0.3;
+}

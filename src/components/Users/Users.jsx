@@ -7,7 +7,7 @@ function Users(props) {
   return (
     <div className={styles.users}>
       <h2 className={styles.heading}>Users</h2>
-      <Paginator {...props} />
+      <Paginator totalItems={props.totalUsers} {...props} portionSize={15} />
       {props.users.map((user) => (
         <User user={user} {...props} />
       ))}

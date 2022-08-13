@@ -50,17 +50,6 @@ class UsersAPI extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     users: state.usersReducer.users,
-//     pageSize: state.usersReducer.pageSize,
-//     totalUsers: state.usersReducer.totalUsers,
-//     currentPage: state.usersReducer.currentPage,
-//     isFetching: state.usersReducer.isFetching,
-//     isFollowing: state.usersReducer.isFollowing,
-//   };
-// };
-
 const mapStateToProps = (state) => {
   return {
     users: getUsersSelector(state),
