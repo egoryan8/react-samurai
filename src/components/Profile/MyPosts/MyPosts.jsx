@@ -8,6 +8,8 @@ import Element from '../../../hoc/withValidation';
 const TextArea = Element('textarea');
 
 function MyPosts(props) {
+  console.log('Render');
+
   const postElements = props.postsData.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} key={post.id} />
   ));
@@ -15,12 +17,6 @@ function MyPosts(props) {
   const addPost = (formData) => {
     props.addPost(formData.post);
   };
-
-  // const onEnterPress = (e) => {
-  //   if (e.keyCode === 13 && e.shiftKey === false) {
-  //     addPost(e);
-  //   }
-  // };
 
   return (
     <>
