@@ -5,6 +5,7 @@ import userAvatarDefault from '../../Users/user.png';
 import ProfileStatus from './ProfileStatus';
 
 function ProfileInfo(props) {
+  console.log(props.profile);
   if (!props.profile) return <Preloader />;
 
   const onPhotoSelected = (e) => {

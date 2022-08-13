@@ -5,11 +5,10 @@ import styles from './Header.module.css';
 function Header(props) {
   return (
     <header className={styles.header}>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/d/db/Zeronet_logo.png"
-        className="App-logo"
-        alt="logo"
-      />
+      <div className={styles.logoWrapper}>
+        <img src="./logo.png" className="App-logo" alt="logo" />
+        <span>SAMURAI NETWORK</span>
+      </div>
       <div className={styles.loginWrapper}>
         {props.isAuth ? (
           <div>
