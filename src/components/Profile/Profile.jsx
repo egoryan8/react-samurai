@@ -5,7 +5,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 function Profile(props) {
   return (
-    <>
+    <div className={styles.profileWrapper}>
       <ProfileInfo
         {...props}
         status={props.status}
@@ -13,8 +13,8 @@ function Profile(props) {
         isOwner={props.isOwner}
         savePhoto={props.savePhoto}
       />
-      <MyPostsContainer />
-    </>
+      <MyPostsContainer {...props} />
+    </div>
   );
 }
 

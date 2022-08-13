@@ -1,18 +1,15 @@
 import styles from './Post.module.css';
 import like from './like.svg';
+import defaultAva from './user.png';
 
 function Post(props) {
   return (
     <div className={styles.post}>
-      <img
-        className={styles.img}
-        src="https://cs4.pikabu.ru/post_img/big/2015/03/20/6/1426840578_1215893866.jpeg"
-        alt=""
-      />
-      <div>{props.message}</div>
+      <img className={styles.img} src={props.photo || defaultAva} alt="Avatar" />
+      <h2>{props.message}</h2>
       <div className={styles.likewrapper}>
         <img src={like} className={styles.like} />
-        {props.likesCount}{' '}
+        <span>{props.likesCount}</span>
       </div>
     </div>
   );

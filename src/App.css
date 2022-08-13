@@ -1,10 +1,11 @@
 .app-wrapper {
-  max-width: 1440px;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: 1920px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 2fr 15fr;
   grid-template-areas:
     'header header'
     'nav content';
@@ -12,5 +13,8 @@
 
 .app-wrapper-content {
   grid-area: content;
-  background-color: rgb(137, 138, 138);
+  background-color: rgb(42, 43, 43);
+  color: white;
+  height: auto;
+  min-height: 100vh;
 }

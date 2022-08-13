@@ -11,7 +11,7 @@ function Users(props) {
       {props.users.map((user) => (
         <User user={user} {...props} />
       ))}
-      <Paginator {...props} />
+      <Paginator totalItems={props.totalUsers} {...props} portionSize={15} />
     </div>
   );
 }

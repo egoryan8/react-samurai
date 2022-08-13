@@ -27,12 +27,14 @@ function ProfileStatus(props) {
         <div>
           <span className={styles.status}>{props.status || 'Установите статус'}</span>
           <span>
-            <img
-              src={edit}
-              alt="Edit button"
-              className={styles.editButton}
-              onClick={activateEditMode}
-            />
+            {props.isOwner && (
+              <img
+                src={edit}
+                alt="Edit button"
+                className={styles.editButton}
+                onClick={activateEditMode}
+              />
+            )}
           </span>
         </div>
       )}

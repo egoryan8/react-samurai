@@ -15,13 +15,6 @@ function ProfileInfo(props) {
 
   return (
     <>
-      <div>
-        <img
-          className={styles.img}
-          src="https://images.unsplash.com/photo-1658144492483-912cc8f969b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
-          alt=""
-        />
-      </div>
       <div className={styles.container}>
         {props.isOwner && (
           <div className={styles.avaWrapper}>
@@ -42,11 +35,13 @@ function ProfileInfo(props) {
           </div>
         )}
         {!props.isOwner && (
-          <img
-            src={props.profile.photos.large || userAvatarDefault}
-            alt="Аватарка"
-            className={styles.ava}
-          />
+          <div className={styles.avaWrapper}>
+            <img
+              src={props.profile.photos.large || userAvatarDefault}
+              alt="Аватарка"
+              className={styles.ava}
+            />
+          </div>
         )}
 
         <div className={styles.textContainer}>
@@ -55,6 +50,7 @@ function ProfileInfo(props) {
             className={styles.status}
             status={props.status}
             updateStatus={props.updateStatus}
+            isOwner={props.isOwner}
           />
         </div>
       </div>

@@ -4,13 +4,23 @@ import Post from './Post/Post';
 import { Form, Field } from 'react-final-form';
 import { myPostsValidator } from '../../../utils/validator';
 import Element from '../../../hoc/withValidation';
+import Preloader from '../../Preloader/Preloader';
 
 const TextArea = Element('textarea');
 
 function MyPosts(props) {
-  const postElements = props.postsData.map((post) => (
-    <Post message={post.message} likesCount={post.likesCount} key={post.id} />
-  ));
+  const postElements = props.profile ? (
+    props.postsData.map((post) => (
+      <Post
+        message={post.message}
+        likesCount={post.likesCount}
+        key={post.id}
+        photo={props.profile.photos.small}
+      />
+    ))
+  ) : (
+    <Preloader />
+  );
 
   const addPost = (formData) => {
     props.addPost(formData.post);
@@ -34,16 +44,18 @@ function AddPostForm({ addPost }) {
     <Form
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <h3 className={styles.addPost}>ДОБАВИТЬ ПОСТ</h3>
-          <Field
-            name="post"
-            component={TextArea}
-            placeholder={'Введите текст поста'}
-            validate={myPostsValidator}
-          />
+        <div className={styles.formWrapper}>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <h3 className={styles.addPost}>ДОБАВИТЬ ПОСТ</h3>
+            <Field
+              name="post"
+              component={TextArea}
+              placeholder={'Введите текст поста'}
+              // validate={myPostsValidator}
+            />
+          </form>
           <button className={styles.button}>Добавить пост</button>
-        </form>
+        </div>
       )}
     />
   );

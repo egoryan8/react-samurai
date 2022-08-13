@@ -1,9 +1,10 @@
 .header {
   grid-area: header;
-  background-color: rgb(124, 121, 115);
+  background-color: rgb(39, 38, 37);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid gray;
 }
 
 .header img {
@@ -41,7 +42,7 @@
 
 .login {
   font-weight: 700;
-  color: rgb(0, 0, 0);
+  color: white;
   text-decoration: underline;
 }
 
