@@ -8,8 +8,6 @@ import Element from '../../../hoc/withValidation';
 const TextArea = Element('textarea');
 
 function MyPosts(props) {
-  console.log('Render');
-
   const postElements = props.postsData.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} key={post.id} />
   ));
