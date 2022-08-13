@@ -20,10 +20,9 @@ export const setInitialized = () => ({
   type: 'SET-INITIALIZED',
 });
 
-export const initializeApp = () => (dispatch) => {
-  dispatch(getAuthData()).then(() => {
-    dispatch(setInitialized());
-  });
+export const initializeApp = () => async (dispatch) => {
+  await dispatch(getAuthData());
+  dispatch(setInitialized());
 };
 
 export default appReducer;

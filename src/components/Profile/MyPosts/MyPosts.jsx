@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 import { Form, Field } from 'react-final-form';
-import { myPostsValidator, required } from '../../../utils/validator';
+import { myPostsValidator } from '../../../utils/validator';
 import Element from '../../../hoc/withValidation';
 
 const TextArea = Element('textarea');
