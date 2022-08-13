@@ -90,24 +90,3 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
-
-.pages {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
-
-.pages span {
-  transition: transform 0.2s;
-}
-
-.pages span:hover {
-  transform: scale(1.8);
-}
-
-.selectedPage {
-  font-weight: bold;
-  color: blueviolet;
-}

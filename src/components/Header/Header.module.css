@@ -36,6 +36,7 @@
   border-radius: 10px;
   background-color: rgb(149, 16, 16);
   color: white;
+  cursor: pointer;
 }
 
 .login {

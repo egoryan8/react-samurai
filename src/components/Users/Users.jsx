@@ -2,28 +2,13 @@ import React from 'react';
 import styles from './Users.module.css';
 import userAvatar from './user.png';
 import { Link } from 'react-router-dom';
+import Paginator from '../Paginator/Paginator';
 
 function Users(props) {
-  let pagesCount = Math.ceil(props.totalUsers / props.pageSize);
-  const pages = [];
-  for (let i = 1; i < pagesCount + 1; i++) {
-    pages.push(i);
-  }
-
   return (
     <div className={styles.users}>
       <h2 className={styles.heading}>Users</h2>
-      <div className={styles.pages}>
-        {pages.map((page) => {
-          return (
-            <span
-              className={props.currentPage === page && styles.selectedPage}
-              onClick={() => props.setCurrentPage(page)}>
-              {page}
-            </span>
-          );
-        })}
-      </div>
+      <Paginator {...props} />
       {props.users.map((user) => (
         <div key={user.id} className={styles.wrapper}>
           <div className={styles.avatarWrapper}>
@@ -67,17 +52,7 @@ function Users(props) {
           </div>
         </div>
       ))}
-      <div className={styles.pages}>
-        {pages.map((page) => {
-          return (
-            <span
-              className={props.currentPage === page && styles.selectedPage}
-              onClick={() => props.setCurrentPage(page)}>
-              {page}
-            </span>
-          );
-        })}
-      </div>
+      <Paginator {...props} />
     </div>
   );
 }

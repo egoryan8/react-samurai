@@ -9,9 +9,9 @@ import { Navigate } from 'react-router-dom';
 
 const Input = Element('input');
 
-function LoginForm(props) {
+function LoginForm({ login }) {
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    login(formData.email, formData.password, formData.rememberMe);
   };
 
   return (
@@ -50,14 +50,14 @@ function LoginForm(props) {
   );
 }
 
-function Login(props) {
-  if (props.isAuth) {
+function Login({ isAuth, login }) {
+  if (isAuth) {
     return <Navigate to="/profile" />;
   }
   return (
     <div className={styles.wrapper}>
       <h1>Авторизоваться</h1>
-      <LoginForm {...props} />
+      <LoginForm login={login} />
     </div>
   );
 }
