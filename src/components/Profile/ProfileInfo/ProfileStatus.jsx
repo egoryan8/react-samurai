@@ -25,7 +25,7 @@ function ProfileStatus(props) {
     <>
       {!editMode && (
         <div>
-          <span className={styles.status}>{props.status || 'Установите статус'}</span>
+          <span className={styles.status}>{props.status || 'Нет статуса'}</span>
           <span>
             {props.isOwner && (
               <img
@@ -41,6 +41,7 @@ function ProfileStatus(props) {
       {editMode && (
         <div>
           <input
+            maxLength={30}
             onChange={onStatusChange}
             autoFocus={true}
             value={status}
