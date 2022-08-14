@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 import { Form, Field } from 'react-final-form';
-import { myPostsValidator } from '../../../utils/validator';
+import { myPostsValidator, required } from '../../../utils/validator';
 import Element from '../../../hoc/withValidation';
 import Preloader from '../../Preloader/Preloader';
 
@@ -39,22 +39,29 @@ function MyPosts(props) {
 function AddPostForm({ addPost }) {
   const onSubmit = (formData) => {
     addPost(formData);
+    formData.post = '';
   };
   return (
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit }) => (
+      render={({ handleSubmit, reset }) => (
         <div className={styles.formWrapper}>
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form
+            onSubmit={(event) => {
+              handleSubmit(event).then(reset);
+            }}
+            className={styles.form}>
             <h3 className={styles.addPost}>ДОБАВИТЬ ПОСТ</h3>
             <Field
               name="post"
               component={TextArea}
               placeholder={'Введите текст поста'}
-              // validate={myPostsValidator}
+              validate={required}
             />
+            <button className={styles.button} onClick={reset}>
+              Добавить пост
+            </button>
           </form>
-          <button className={styles.button}>Добавить пост</button>
         </div>
       )}
     />
