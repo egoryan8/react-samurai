@@ -6,7 +6,7 @@ import User from './User';
 function Users(props) {
   return (
     <div className={styles.users}>
-      <h2 className={styles.heading}>Users</h2>
+      <h2 className={styles.heading}>Пользователи</h2>
       <Paginator totalItems={props.totalUsers} {...props} portionSize={15} />
       {props.users.map((user) => (
         <User user={user} {...props} />

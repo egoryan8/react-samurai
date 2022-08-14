@@ -10,42 +10,42 @@ function Navbar() {
           <NavLink
             to="/profile"
             className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
-            Profile
+            Профиль
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/messages"
             className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
-            Messages
+            Сообщения
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/news"
             className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
-            News
+            Новости
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/music"
             className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
-            Music
+            Музыка
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/users"
             className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
-            Find users
+            Найти людей
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/settings"
             className={(navData) => (navData.isActive ? styles.link_active : styles.link)}>
-            Settings
+            Настройки
           </NavLink>
         </li>
       </ul>

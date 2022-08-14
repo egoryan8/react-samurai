@@ -13,12 +13,13 @@
   align-self: start;
   margin: 0 0 10px;
   font-weight: 600;
+  border-bottom: 1px solid blueviolet;
 }
 
 .wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 10fr;
+  grid-template-columns: 2fr 10fr;
   padding: 10px;
   margin-bottom: 20px;
   align-items: center;

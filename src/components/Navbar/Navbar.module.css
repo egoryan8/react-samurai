@@ -2,6 +2,7 @@
   background-color: rgb(45, 44, 42);
   grid-area: nav;
   border-right: 1px solid gray;
+  padding-top: 20px;
 }
 
 .list {
