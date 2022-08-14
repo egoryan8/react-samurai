@@ -5,3 +5,82 @@
 .field {
   margin-right: 100px;
 }
+
+.input {
+  background-color: transparent;
+  border: none;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  color: rgb(62, 62, 185);
+  margin: 0 0 5px 10px;
+  padding: 4px;
+}
+
+.inputProfile,
+.textareaProfile {
+  background-color: transparent;
+  border: none;
+  border: 1px solid blueviolet;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+}
+.textareaProfile {
+  height: 55px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.inputWrapper span {
+  font-size: 10px;
+  color: red;
+  opacity: 0.8;
+}
+
+.inputWrapper h2,
+.checkboxWrapper label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  font-size: 18px;
+  text-align: center;
+  padding: 0 0 5px;
+}
+
+.checkboxWrapper input {
+  align-self: end;
+}
+
+.editButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  /* background-color: blueviolet; */
+  background-image: url(./Save.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.editButton:hover {
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+
+.field {
+  padding-right: 60px;
+  margin-right: 60px;
+  border-right: 1px solid gray;
+}

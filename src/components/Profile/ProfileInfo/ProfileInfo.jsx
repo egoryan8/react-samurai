@@ -8,7 +8,6 @@ import ProfileDataForm from './ProfileDataForm';
 
 function ProfileInfo(props) {
   const [editMode, setEditMode] = useState(false);
-  console.log(props.profile);
   if (!props.profile) return <Preloader />;
 
   const onPhotoSelected = (e) => {
@@ -52,7 +51,7 @@ function ProfileInfo(props) {
             />
           </div>
         )}
-        <div className={styles.textContainer}>
+        <div className={styles.profileInfoContainer}>
           <h1 className={styles.name}>{props.profile.fullName}</h1>
           <ProfileStatus
             className={styles.status}
@@ -86,29 +85,29 @@ const ProfileData = (props) => {
       )}
 
       <div className={styles.textContainer}>
-        <div>
-          <b>Обо мне: </b>
-          <span>{props.profile.aboutMe}</span>
-        </div>
-        <div>
+        <h2>Обо мне:</h2>
+        <b>Обо мне: </b>
+        <p>{props.profile.aboutMe}</p>
+        <p>
           <b>Ищу работу: </b>
-          <span>{props.profile.lookingForAJob ? 'да' : 'нет'}</span>
-        </div>
+          {props.profile.lookingForAJob ? 'да' : 'нет'}
+        </p>
         {props.profile.lookingForAJob && (
-          <div>
-            <b>Мои навыки: </b> <span>{props.profile.lookingForAJobDescription}</span>
-          </div>
+          <>
+            <b>Мои навыки: </b>
+            <p>{props.profile.lookingForAJobDescription}</p>
+          </>
         )}
       </div>
       <div className={styles.textContainer}>
-        <b>
-          Контакты:
-          {Object.keys(props.profile.contacts).map((key) => {
-            return (
+        <h2>Контакты:</h2>
+        {Object.keys(props.profile.contacts).map((key) => {
+          return (
+            props.profile.contacts[key] && (
               <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
-            );
-          })}
-        </b>
+            )
+          );
+        })}
       </div>
     </>
   );
@@ -117,7 +116,7 @@ const ProfileData = (props) => {
 export const Contact = ({ contactTitle, contactValue }) => {
   return (
     <div className={styles.contact}>
-      <b>{contactTitle}: </b>
+      <b>{contactTitle === 'website' ? 'telegram' : contactTitle}: </b>
       <a href={contactValue} target="_blank">
         {contactValue}
       </a>
