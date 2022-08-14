@@ -1,0 +1,7 @@
+.form {
+  display: flex;
+}
+
+.field {
+  margin-right: 100px;
+}
