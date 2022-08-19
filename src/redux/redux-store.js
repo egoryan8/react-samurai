@@ -2,7 +2,7 @@ import profileReducer from './profile-reducer';
 import messagesReducer from './messages-reducer';
 import usersReducer from './users-reducer';
 import authReducer from './auth-reducer';
-import appReducer from './app-reducer';
+import appReducer from './app-reducer.ts';
 import ThunkMiddleware from 'redux-thunk';
 
 import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
