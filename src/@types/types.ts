@@ -1,4 +1,3 @@
-import { follow } from './../redux/users-reducer';
 export type PostType = {
   id: number;
   message: string;
@@ -6,13 +5,13 @@ export type PostType = {
 };
 
 export type ContactsType = {
-  github: string;
-  vk: string;
-  facebook: string;
-  instagram: string;
-  twitter: string;
+  github?: string;
+  vk?: string;
+  facebook?: string;
+  instagram?: string;
+  twitter?: string;
   website: string;
-  youtube: string;
+  youtube?: string;
   mainLink: string;
 };
 
@@ -28,6 +27,7 @@ export type ProfileType = {
   fullName: string | null;
   contacts: ContactsType | null;
   photos: PhotosType | null;
+  aboutMe: string | null;
 };
 
 export type UserType = {
@@ -36,4 +36,14 @@ export type UserType = {
   status: string;
   photos: PhotosType;
   followed: boolean;
+};
+
+export type MessageType = {
+  id: number;
+  message: string;
+};
+
+export type DialogType = {
+  id: number;
+  name: string;
 };

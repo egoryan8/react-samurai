@@ -1,5 +1,5 @@
 import { profileAPI } from '../api/api';
-import { PhotosType, PostType, ProfileType } from '../types/types';
+import { PhotosType, PostType, ProfileType } from '../@types/types';
 
 const ADD_POST = 'ADD_POST';
 const SET_PROFILE = 'SET_PROFILE';
@@ -16,6 +16,7 @@ const initialState = {
   ] as Array<PostType>,
   profile: null as ProfileType | null,
   status: '',
+  newPostText: '',
 };
 const profileReducer = (state = initialState, action: any): initialStateType => {
   switch (action.type) {

@@ -2,7 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 
-function Header(props) {
+type HeaderProps = {
+  isAuth: boolean;
+  login: string | null;
+
+  logout: () => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ isAuth, login, logout }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logoWrapper}>
@@ -10,10 +17,9 @@ function Header(props) {
         <span>SAMURAI NETWORK</span>
       </div>
       <div className={styles.loginWrapper}>
-        {props.isAuth ? (
+        {isAuth ? (
           <div>
-            <span className={styles.login}>{props.login}</span>{' '}
-            <button onClick={props.logout}>Выйти</button>{' '}
+            <span className={styles.login}>{login}</span> <button onClick={logout}>Выйти</button>{' '}
           </div>
         ) : (
           <div>
@@ -23,7 +29,8 @@ function Header(props) {
             <a
               className={styles.signUp}
               href="https://social-network.samuraijs.com/signUp"
-              target="_blank">
+              target="_blank"
+              rel="noreferrer">
               зарегестрироваться
             </a>
           </div>
@@ -31,6 +38,6 @@ function Header(props) {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

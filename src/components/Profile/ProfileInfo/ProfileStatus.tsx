@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react';
 import styles from './ProfileInfo.module.css';
 import edit from './Edit.svg';
 
-function ProfileStatus(props) {
+type ProfileStatusProps = {
+  propStatus: string;
+  isOwner: boolean;
+  updateStatus: (status: string) => void;
+};
+
+const ProfileStatus: React.FC<ProfileStatusProps> = ({ propStatus, isOwner, updateStatus }) => {
   const [editMode, setEditMode] = useState(false);
-  const [status, setStatus] = useState(props.status);
+  const [status, setStatus] = useState(propStatus);
 
   useEffect(() => {
-    setStatus(props.status);
-  }, [props.status]);
+    setStatus(propStatus);
+  }, [propStatus]);
 
-  const onStatusChange = (evt) => setStatus(evt.currentTarget.value);
+  const onStatusChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
+    setStatus(evt.currentTarget.value);
 
   const activateEditMode = () => {
     setEditMode(true);
@@ -18,16 +25,16 @@ function ProfileStatus(props) {
 
   const deactivateEditMode = () => {
     setEditMode(false);
-    props.updateStatus(status);
+    updateStatus(status);
   };
 
   return (
     <>
       {!editMode && (
         <div>
-          <span className={styles.status}>{props.status || 'Нет статуса'}</span>
+          <span className={styles.status}>{propStatus || 'Нет статуса'}</span>
           <span>
-            {props.isOwner && (
+            {isOwner && (
               <img
                 src={edit}
                 alt="Edit button"
@@ -51,6 +58,6 @@ function ProfileStatus(props) {
       )}
     </>
   );
-}
+};
 
 export default ProfileStatus;

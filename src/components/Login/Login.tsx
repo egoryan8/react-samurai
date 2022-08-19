@@ -6,11 +6,15 @@ import Element from '../../hoc/withValidation';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
 import { Navigate } from 'react-router-dom';
-
+import { AppStateType } from '../../redux/redux-store';
 const Input = Element('input');
 
-function LoginForm({ login }) {
-  const onSubmit = (formData) => {
+type LoginFormPropsType = {
+  login: (email: string, password: string, rememberMe: boolean) => void;
+};
+
+const LoginForm: React.FC<LoginFormPropsType> = ({ login }) => {
+  const onSubmit = (formData: any) => {
     login(formData.email, formData.password, formData.rememberMe);
   };
 
@@ -39,7 +43,7 @@ function LoginForm({ login }) {
           </div>
           <div className={styles.checkboxWrapper}>
             <Field id="rememberMe" name="rememberMe" type="checkbox" component="input" />
-            <label for="rememberMe" className={styles.label}>
+            <label htmlFor="rememberMe" className={styles.label}>
               remember me
             </label>
             <button>Войти</button>
@@ -48,9 +52,14 @@ function LoginForm({ login }) {
       )}
     />
   );
-}
+};
 
-function Login({ isAuth, login }) {
+type LoginPropsType = {
+  login: (email: string, password: string, rememberMe: boolean) => void;
+  isAuth: boolean;
+};
+
+const Login: React.FC<LoginPropsType> = ({ isAuth, login }) => {
   if (isAuth) {
     return <Navigate to="/profile" />;
   }
@@ -60,9 +69,9 @@ function Login({ isAuth, login }) {
       <LoginForm login={login} />
     </div>
   );
-}
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   isAuth: state.authReducer.isAuth,
 });
 

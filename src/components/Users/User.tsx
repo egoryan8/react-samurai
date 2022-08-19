@@ -2,8 +2,16 @@ import React from 'react';
 import styles from './Users.module.css';
 import userAvatar from './user.png';
 import { Link } from 'react-router-dom';
+import { UserType } from '../../@types/types';
 
-function User({ user, ...props }) {
+type UserPropsType = {
+  user: UserType;
+  isFollowing: Array<number>;
+  unfollow: (userId: number) => void;
+  follow: (userId: number) => void;
+};
+
+const User: React.FC<UserPropsType> = ({ user, isFollowing, unfollow, follow }) => {
   return (
     <div key={user.id} className={styles.wrapper}>
       <div className={styles.avatarWrapper}>
@@ -17,18 +25,18 @@ function User({ user, ...props }) {
         </Link>
         {user.followed ? (
           <button
-            disabled={props.isFollowing.some((id) => id === user.id)}
+            disabled={isFollowing.some((id: number) => id === user.id)}
             onClick={() => {
-              props.unfollow(user.id);
+              unfollow(user.id);
             }}
             className={styles.buttonUnfollow}>
             Unfollow
           </button>
         ) : (
           <button
-            disabled={props.isFollowing.some((id) => id === user.id)}
+            disabled={isFollowing.some((id: number) => id === user.id)}
             onClick={() => {
-              props.follow(user.id);
+              follow(user.id);
             }}
             className={styles.buttonFollow}>
             Follow
@@ -47,6 +55,6 @@ function User({ user, ...props }) {
       </div>
     </div>
   );
-}
+};
 
 export default User;

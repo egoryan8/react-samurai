@@ -1,12 +1,4 @@
-type messageType = {
-  id: number;
-  message: string;
-};
-
-type dialogType = {
-  id: number;
-  name: string;
-};
+import { DialogType, MessageType } from '../@types/types';
 
 type initialStateType = typeof initialState;
 
@@ -17,14 +9,14 @@ const initialState = {
     { id: 3, message: 'Im glad to write u' },
     { id: 4, message: 'Im too' },
     { id: 5, message: 'U are very cute! :3' },
-  ] as Array<messageType>,
+  ] as Array<MessageType>,
   dialogsData: [
     { id: 1, name: 'Andrew' },
     { id: 2, name: 'Egor' },
     { id: 3, name: 'Denis' },
     { id: 4, name: 'Ivan' },
     { id: 5, name: 'Ilya' },
-  ] as Array<dialogType>,
+  ] as Array<DialogType>,
 };
 
 const ADD_MESSAGE = 'ADD_MESSAGE';

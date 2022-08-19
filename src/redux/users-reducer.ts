@@ -1,5 +1,5 @@
 import { usersAPI } from '../api/api';
-import { UserType } from '../types/types';
+import { UserType } from '../@types/types';
 const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';

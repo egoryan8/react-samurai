@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
 import styles from './Paginator.module.css';
 
-function Paginator({ totalItems, pageSize, currentPage, setCurrentPage, portionSize = 10 }) {
+type PaginatorPropsType = {
+  totalItems: number;
+  currentPage: number;
+  pageSize: number;
+  portionSize: number;
+  setCurrentPage: (page: number) => void;
+};
+
+const Paginator: React.FC<PaginatorPropsType> = ({
+  totalItems,
+  pageSize,
+  currentPage,
+  setCurrentPage,
+  portionSize = 10,
+}) => {
   let pagesCount = Math.ceil(totalItems / pageSize);
   const pages = [];
   for (let i = 1; i < pagesCount + 1; i++) {
@@ -38,6 +52,6 @@ function Paginator({ totalItems, pageSize, currentPage, setCurrentPage, portionS
       )}
     </div>
   );
-}
+};
 
 export default Paginator;

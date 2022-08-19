@@ -19,13 +19,28 @@ import {
   getUsers,
 } from '../../redux/users-reducer';
 import Preloader from '../Preloader/Preloader';
+import { UserType } from '../../@types/types';
+import { AppStateType } from '../../redux/redux-store';
 
-class UsersAPI extends React.Component {
+type PropsType = {
+  users: Array<UserType>;
+  totalUsers: number;
+  currentPage: number;
+  pageSize: number;
+  isFollowing: Array<number>;
+  isFetching: boolean;
+  setCurrentPage: (page: number) => void;
+  follow: (userId: number) => void;
+  unfollow: (userId: number) => void;
+  getUsers: (page: number, pageSize: number) => void;
+};
+
+class UsersAPI extends React.Component<PropsType> {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
-  setCurrentPage = (page) => {
+  setCurrentPage = (page: number) => {
     this.props.setCurrentPage(page);
     this.props.getUsers(page, this.props.pageSize);
   };
@@ -42,7 +57,6 @@ class UsersAPI extends React.Component {
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
-          isFetching={this.props.isFetching}
           isFollowing={this.props.isFollowing}
         />
       </>
@@ -50,7 +64,7 @@ class UsersAPI extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType) => {
   return {
     users: getUsersSelector(state),
     pageSize: getPageSize(state),

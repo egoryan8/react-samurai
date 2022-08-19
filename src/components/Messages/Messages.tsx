@@ -4,17 +4,24 @@ import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/DialogItem';
 import styles from './Messages.module.css';
 import { required } from '../../utils/validator';
+import { DialogType, MessageType } from '../../@types/types';
 
-function Messages(props) {
-  const dialogElements = props.dialogsData.map((dialog) => (
+type MesagesProps = {
+  dialogsData: Array<DialogType>;
+  messagesData: Array<MessageType>;
+  addMessageDispatch: (message: string) => void;
+};
+
+const Messages: React.FC<MesagesProps> = ({ dialogsData, messagesData, addMessageDispatch }) => {
+  const dialogElements = dialogsData.map((dialog) => (
     <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
   ));
-  const messageElements = props.messagesData.map((message) => (
+  const messageElements = messagesData.map((message) => (
     <MessageItem message={message.message} key={message.id} />
   ));
 
-  const addMessage = (formData) => {
-    props.addMessage(formData.message);
+  const addMessage = (formData: { message: string }) => {
+    addMessageDispatch(formData.message);
   };
 
   // const onEnterPress = (e) => {
@@ -35,10 +42,14 @@ function Messages(props) {
       </div>
     </div>
   );
-}
+};
 
-function AddNewMessageForm({ addMessage }) {
-  const onSubmit = (formData) => {
+type AddNewMessageFormType = {
+  addMessage: (formData: { message: string }) => void;
+};
+
+const AddNewMessageForm: React.FC<AddNewMessageFormType> = ({ addMessage }) => {
+  const onSubmit = (formData: { message: string }) => {
     addMessage(formData);
   };
   return (
@@ -57,6 +68,6 @@ function AddNewMessageForm({ addMessage }) {
       )}
     />
   );
-}
+};
 
 export default Messages;

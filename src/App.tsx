@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { initializeApp } from './redux/app-reducer.ts';
+import { initializeApp } from './redux/app-reducer';
 
 import './App.css';
 
@@ -13,11 +13,15 @@ import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
 import Preloader from './components/Preloader/Preloader';
+import { AppStateType } from './redux/redux-store';
+import MessagesContainer from './components/Messages/MessagesContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
-const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-const MessagesContainer = React.lazy(() => import('./components/Messages/MessagesContainer'));
-
-class App extends React.Component {
+type PropsType = {
+  initializeApp: () => void;
+  initialized: boolean;
+};
+class App extends React.Component<PropsType> {
   componentDidMount() {
     this.props.initializeApp();
   }
@@ -29,36 +33,19 @@ class App extends React.Component {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route
-              path="/profile"
-              element={
-                <React.Suspense fallback={<Preloader />}>
-                  <ProfileContainer />
-                </React.Suspense>
-              }
-            />
-
-            <Route
-              path="/profile/:userId"
-              element={
-                <React.Suspense fallback={<Preloader />}>
-                  <ProfileContainer />
-                </React.Suspense>
-              }
-            />
-            <Route
-              path="/messages*"
-              element={
-                <React.Suspense fallback={<Preloader />}>
-                  <MessagesContainer />
-                </React.Suspense>
-              }
-            />
+            {/* @ts-ignore*/}
+            <Route path="/profile" element={<ProfileContainer />} />
+            {/* @ts-ignore*/}
+            <Route path="/profile/:userId" element={<ProfileContainer />} />
+            {/* @ts-ignore*/}
+            <Route path="/messages*" element={<MessagesContainer />} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/login" element={<Login />} />
+            {/* @ts-ignore*/}
+            <Route path="/" element={<ProfileContainer />} />
           </Routes>
         </div>
       </div>
@@ -66,7 +53,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialized: state.appReducer.initialized,
 });
 

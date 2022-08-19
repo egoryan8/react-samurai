@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Preloader.module.css';
 
-function Preloader() {
+const Preloader: React.FC = () => {
   return (
     <div className={styles.container}>
       <svg
@@ -79,6 +79,6 @@ function Preloader() {
       </svg>
     </div>
   );
-}
+};
 
 export default Preloader;
