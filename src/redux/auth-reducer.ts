@@ -1,6 +1,5 @@
 import { Dispatch } from 'redux';
 import { authAPI } from '../api/api';
-import { setInitializedType } from './app-reducer';
 
 export type initialStateType = typeof initialState;
 
@@ -46,12 +45,12 @@ export const setAuthData = (
 });
 
 export const getAuthData = () => async (dispatch: Dispatch<setAuthDataType>) => {
-  const res = await authAPI.me();
-  if (res.data.resultCode === 0) {
-    let { id, email, login } = res.data.data;
+  const meData = await authAPI.me();
+  if (meData.resultCode === 0) {
+    let { id, email, login } = meData.data;
     dispatch(setAuthData(id, email, login, true));
   }
-  return res;
+  return meData;
 };
 
 export const login =
