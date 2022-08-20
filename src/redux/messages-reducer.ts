@@ -21,7 +21,10 @@ const initialState = {
 
 const ADD_MESSAGE = 'ADD_MESSAGE';
 
-const messagesReducer = (state = initialState, action: any): initialStateType => {
+const messagesReducer = (
+  state = initialState,
+  action: addMessageActionCreatorType,
+): initialStateType => {
   switch (action.type) {
     case ADD_MESSAGE:
       return {
