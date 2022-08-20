@@ -1,4 +1,4 @@
-import { profileAPI } from '../api/api';
+import { profileAPI, ResultCodeEnum } from '../api/api';
 import { PhotosType, PostType, ProfileType } from '../@types/types';
 import { Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
@@ -90,8 +90,8 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>;
 export const getProfile =
   (userId: number): ThunkType =>
   async (dispatch) => {
-    const res = await profileAPI.getProfile(userId);
-    dispatch(setProfile(res.data));
+    const data = await profileAPI.getProfile(userId);
+    dispatch(setProfile(data));
   };
 
 export const getStatus =
@@ -113,9 +113,9 @@ export const updateStatus =
 export const savePhoto =
   (photo: string): ThunkType =>
   async (dispatch) => {
-    const res = await profileAPI.setPhoto(photo);
-    if (res.data.resultCode === 0) {
-      dispatch(savePhotoSuccess(res.data.data.photos));
+    const data = await profileAPI.setPhoto(photo);
+    if (data.resultCode === ResultCodeEnum.SUCCESS) {
+      dispatch(savePhotoSuccess(data.photos));
     }
   };
 

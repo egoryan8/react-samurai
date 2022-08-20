@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { authAPI } from '../api/api';
+import { authAPI, ResultCodeEnum } from '../api/api';
 
 export type initialStateType = typeof initialState;
 
@@ -46,7 +46,7 @@ export const setAuthData = (
 
 export const getAuthData = () => async (dispatch: Dispatch<setAuthDataType>) => {
   const meData = await authAPI.me();
-  if (meData.resultCode === 0) {
+  if (meData.resultCode === ResultCodeEnum.SUCCESS) {
     let { id, email, login } = meData.data;
     dispatch(setAuthData(id, email, login, true));
   }
@@ -55,15 +55,15 @@ export const getAuthData = () => async (dispatch: Dispatch<setAuthDataType>) => 
 
 export const login =
   (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
-    const res = await authAPI.login(email, password, rememberMe);
-    if (res.data.resultCode === 0) {
+    const data = await authAPI.login(email, password, rememberMe);
+    if (data.resultCode === ResultCodeEnum.SUCCESS) {
       dispatch(getAuthData());
     }
   };
 
 export const logout = () => async (dispatch: Dispatch<setAuthDataType>) => {
-  const res = await authAPI.logout();
-  if (res.data.resultCode === 0) {
+  const data = await authAPI.logout();
+  if (data.resultCode === ResultCodeEnum.SUCCESS) {
     dispatch(setAuthData(null, null, null, false));
   }
 };
