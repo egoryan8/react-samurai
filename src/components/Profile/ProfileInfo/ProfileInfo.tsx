@@ -146,12 +146,6 @@ const ProfileData: React.FC<ProfileDataType> = ({ profile, isOwner, activateEdit
             website
           </a>
         </div>
-        <div className={styles.mainLink}>
-          <b>website: </b>
-          <a href={profile.contacts?.mainLink} target="_blank" rel="noreferrer">
-            mainLink
-          </a>
-        </div>
       </div>
     </>
   );

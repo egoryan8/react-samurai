@@ -18,30 +18,27 @@
 
 .form {
   margin-top: 20px;
-  width: 30%;
-}
-
-.input {
-  border: none;
+  width: 35%;
 }
 
 .inputWrapper {
-  min-height: 45px;
+  min-height: 65px;
 }
 
 .inputWrapper input {
   color: white;
   border: none;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   background: rgb(141, 66, 211);
+  font-size: 16px;
 }
 
 .inputWrapper input::placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .checkboxWrapper {
@@ -51,14 +48,16 @@
 
 .checkboxWrapper label {
   line-height: 1;
-  font-size: 12px;
+  font-size: 13px;
+  color: rgb(53, 51, 169);
 }
 
 .checkboxWrapper button {
   margin-left: auto;
-  padding: 5px 20px;
+  padding: 10px 30px;
   border: none;
-  background-color: blueviolet;
+  background-color: rgb(53, 51, 169);
   color: white;
   border-radius: 10px;
+  font-size: 16px;
 }

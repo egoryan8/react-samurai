@@ -109,16 +109,6 @@ const ProfileDataForm: React.FC<ProfileDataFormType> = ({ onSubmit, profile }) =
                   initialValue={profile.contacts ? profile.contacts.website : ''}
                 />
               </div>
-              <div>
-                <b>mainLink:</b>
-                <Field
-                  className={styles.input}
-                  name="contacts.mainLink"
-                  placeholder="mainLink"
-                  component="input"
-                  initialValue={profile.contacts ? profile.contacts.mainLink : ''}
-                />
-              </div>
             </div>
           </div>
           <div>

@@ -30,7 +30,7 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 10px 15px;
   border-radius: 10px;
   background-color: blueviolet;
   color: white;
@@ -42,17 +42,23 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 10px 15px;
   border-radius: 10px;
   background-color: rgb(149, 16, 16);
   color: white;
   cursor: pointer;
+  margin-left: 5px;
+}
+
+.loginWrapper button:hover {
+  opacity: 0.7;
 }
 
 .login {
+  font-size: 20px;
   font-weight: 700;
   color: white;
-  text-decoration: underline;
+  padding-bottom: 5px;
 }
 
 .signUp {
@@ -62,7 +68,7 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 10px 15px;
   border-radius: 10px;
   color: white;
 }
