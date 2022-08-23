@@ -1,7 +1,6 @@
 import { UserType } from '../@types/types';
-import { AppStateType, InferActionsTypes, CommonThunkType } from './redux-store';
+import { InferActionsTypes, CommonThunkType } from './redux-store';
 import { Dispatch } from 'redux';
-import { ThunkAction } from 'redux-thunk';
 import { usersAPI } from '../api/users-api';
 
 const initialState = {

@@ -70,6 +70,7 @@ const mapStateToProps = (state: AppStateType) => {
 };
 
 export default connect(mapStateToProps, {
+  setCurrentPage: actions.setCurrentPage,
   getUsers,
   follow,
   unfollow,
