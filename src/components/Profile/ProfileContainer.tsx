@@ -20,7 +20,7 @@ type PropsType = {
   status: string;
   authorizedUserId: number;
   updateStatus: (status: string) => void;
-  savePhoto: (photo: PhotosType) => void;
+  savePhoto: (photo: File) => void;
   saveProfile: (profile: ProfileType) => void;
   getProfile: (userId: number) => void;
   getStatus: (userId: number) => void;

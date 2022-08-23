@@ -5,13 +5,13 @@ import userAvatarDefault from '../../Users/user.png';
 import ProfileStatus from './ProfileStatus';
 import { useState } from 'react';
 import ProfileDataForm from './ProfileDataForm';
-import { PhotosType, ProfileType } from '../../../@types/types';
+import { ProfileType } from '../../../@types/types';
 
 type ProfileInfoPropsType = {
   status: string;
   profile: ProfileType;
   isOwner: boolean;
-  savePhoto: (photo: PhotosType) => void;
+  savePhoto: (photo: File) => void;
   saveProfile: (profile: ProfileType) => void;
   updateStatus: (status: string) => void;
 };
@@ -43,13 +43,11 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
       <div className={styles.container}>
         {isOwner && (
           <div className={styles.avaWrapper}>
-            <img
-              src={
-                profile.photos ? profile.photos.small || profile.photos.large : userAvatarDefault
-              }
-              alt="Аватарка"
-              className={styles.ava}
-            />
+            {profile.photos ? (
+              <img src={profile.photos.large} alt="Аватарка" className={styles.ava} />
+            ) : (
+              <img src={userAvatarDefault} alt="Аватарка" className={styles.ava} />
+            )}
 
             <input
               id="uploadAva"
