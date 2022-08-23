@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { DialogType, MessageType } from '../../@types/types';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import { addMessageActionCreator } from '../../redux/messages-reducer';
+import { actions } from '../../redux/messages-reducer';
 import { AppStateType } from '../../redux/redux-store';
 import Messages from './Messages';
 
@@ -41,7 +41,7 @@ const mapStateToProps = (state: AppStateType) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     addMessage: (message: string) => {
-      dispatch(addMessageActionCreator(message));
+      dispatch(actions.addMessageActionCreator(message));
     },
   };
 };
