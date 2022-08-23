@@ -39,7 +39,16 @@ class App extends React.Component<PropsType> {
             <Route path="/profile/:userId" element={<ProfileContainer />} />
             {/* @ts-ignore*/}
             <Route path="/messages*" element={<MessagesContainer />} />
-            <Route path="/users" element={<UsersContainer />} />
+            <Route
+              path="/users"
+              element={
+                <UsersContainer
+                  setCurrentPage={function (page: number): void {
+                    throw new Error('Function not implemented.');
+                  }}
+                />
+              }
+            />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />

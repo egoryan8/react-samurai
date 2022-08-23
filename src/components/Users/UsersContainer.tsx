@@ -11,13 +11,7 @@ import {
   getUsersSelector,
 } from '../../redux/users-selectors';
 
-import {
-  follow,
-  unfollow,
-  setCurrentPage,
-  toggleFollowingProgress,
-  getUsers,
-} from '../../redux/users-reducer';
+import { follow, unfollow, getUsers, actions } from '../../redux/users-reducer';
 import Preloader from '../Preloader/Preloader';
 import { UserType } from '../../@types/types';
 import { AppStateType } from '../../redux/redux-store';
@@ -76,8 +70,6 @@ const mapStateToProps = (state: AppStateType) => {
 };
 
 export default connect(mapStateToProps, {
-  setCurrentPage,
-  toggleFollowingProgress,
   getUsers,
   follow,
   unfollow,
