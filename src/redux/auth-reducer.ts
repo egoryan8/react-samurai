@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
-import { authAPI, ResultCodeEnum } from '../api/api';
+import { ResultCodeEnum } from '../api/api';
+import { authAPI } from '../api/auth-api';
 
 export type initialStateType = typeof initialState;
 

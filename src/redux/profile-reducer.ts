@@ -1,8 +1,9 @@
-import { profileAPI, ResultCodeEnum } from '../api/api';
+import { ResultCodeEnum } from '../api/api';
 import { PhotosType, PostType, ProfileType } from '../@types/types';
 import { Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { AppStateType } from './redux-store';
+import { profileAPI } from '../api/profile-api';
 
 const ADD_POST = 'ADD_POST';
 const SET_PROFILE = 'SET_PROFILE';
