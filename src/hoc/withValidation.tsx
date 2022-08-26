@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Validation.module.css';
 
-const Element =
-  (Element) =>
+const Element: (Element: any) => ({input, meta, ...props}: { input: any; meta: any; [p: string]: any }) =>
+  JSX.Element = (Element: any) =>
   ({ input, meta, ...props }) => {
     const hasError = meta.touched && meta.error;
-    return (
+
+  return (
       <>
         <Element
           {...input}
