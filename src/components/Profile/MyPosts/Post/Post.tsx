@@ -1,6 +1,7 @@
 import styles from './Post.module.css';
 import like from './like.svg';
 import defaultAva from './user.png';
+import React from "react";
 
 type PostPropsType = { photo: string | null; message: string; likesCount: number };
 

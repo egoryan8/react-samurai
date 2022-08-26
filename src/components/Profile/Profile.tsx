@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Profile.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import { PhotosType, ProfileType } from '../../@types/types';
+import { ProfileType } from '../../@types/types';
 
 type ProfilePropsType = {
   profile: ProfileType;

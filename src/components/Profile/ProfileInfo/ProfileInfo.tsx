@@ -1,34 +1,27 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import Preloader from '../../Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
 import userAvatarDefault from '../../Users/user.png';
 import ProfileStatus from './ProfileStatus';
-import { useState } from 'react';
+import {useState} from 'react';
 import ProfileDataForm from './ProfileDataForm';
-import { ProfileType } from '../../../@types/types';
+import {ProfileType} from '../../../@types/types';
 
 type ProfileInfoPropsType = {
   status: string;
   profile: ProfileType;
   isOwner: boolean;
-  savePhoto: (photo: File) => void;
+  savePhoto: (file: File) => void;
   saveProfile: (profile: ProfileType) => void;
   updateStatus: (status: string) => void;
 };
 
-const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
-  status,
-  profile,
-  isOwner,
-  savePhoto,
-  saveProfile,
-  updateStatus,
-}) => {
+const ProfileInfo: React.FC<ProfileInfoPropsType> = ({status, profile, isOwner, savePhoto, saveProfile, updateStatus,}) => {
   const [editMode, setEditMode] = useState(false);
-  if (!profile) return <Preloader />;
+  if (!profile) return <Preloader/>;
 
-  const onPhotoSelected = (e: any) => {
-    if (e.target.files.length) {
+  const onPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files?.length) {
       savePhoto(e.target.files[0]);
     }
   };
@@ -37,43 +30,32 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = ({
     saveProfile(formData);
     setEditMode(false);
   };
-
   return (
     <>
       <div className={styles.container}>
-        {isOwner && (
-          <div className={styles.avaWrapper}>
-            {profile.photos ? (
-              <img src={profile.photos.large} alt="Аватарка" className={styles.ava} />
-            ) : (
-              <img src={userAvatarDefault} alt="Аватарка" className={styles.ava} />
-            )}
-
-            <input
-              id="uploadAva"
-              name="uploadAva"
-              type="file"
-              onChange={onPhotoSelected}
-              className={styles.avaInput}
-            />
-            <label htmlFor="uploadAva" className={styles.avaInputLabel}></label>
-          </div>
-        )}
-        {!isOwner && (
-          <div className={styles.avaWrapper}>
-            <img
-              src={profile.photos ? profile.photos.large : userAvatarDefault}
-              alt="Аватарка"
-              className={styles.ava}
-            />
-          </div>
-        )}
+        <div className={styles.avaWrapper}>
+          <img src={profile.photos?.large || userAvatarDefault} alt="Аватарка" className={styles.ava}/>
+          {
+            isOwner && (
+              <>
+                <input
+                  id="uploadAva"
+                  name="uploadAva"
+                  type="file"
+                  onChange={onPhotoSelected}
+                  className={styles.avaInput}
+                />
+                <label htmlFor="uploadAva" className={styles.avaInputLabel}></label>
+              </>
+            )
+          }
+        </div>
         <div className={styles.profileInfoContainer}>
           <h1 className={styles.name}>{profile.fullName}</h1>
-          <ProfileStatus propStatus={status} updateStatus={updateStatus} isOwner={isOwner} />
+          <ProfileStatus propStatus={status} updateStatus={updateStatus} isOwner={isOwner}/>
         </div>
         {editMode ? (
-          <ProfileDataForm profile={profile} onSubmit={onSubmit} />
+          <ProfileDataForm profile={profile} onSubmit={onSubmit}/>
         ) : (
           <ProfileData
             profile={profile}
@@ -94,7 +76,7 @@ type ProfileDataType = {
   activateEditMode: () => void;
 };
 
-const ProfileData: React.FC<ProfileDataType> = ({ profile, isOwner, activateEditMode }) => {
+const ProfileData: React.FC<ProfileDataType> = ({profile, isOwner, activateEditMode}) => {
   return (
     <>
       {isOwner && (

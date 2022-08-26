@@ -22,7 +22,7 @@ const Preloader: React.FC = () => {
             repeatCount="indefinite"
           />
           <animate
-            attributeName="fill-opacity"
+            attributeName="fillOpacity"
             from="1"
             to="1"
             begin="0s"
@@ -32,7 +32,7 @@ const Preloader: React.FC = () => {
             repeatCount="indefinite"
           />
         </circle>
-        <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+        <circle cx="60" cy="15" r="9" fillOpacity="0.3">
           <animate
             attributeName="r"
             from="9"
@@ -44,7 +44,7 @@ const Preloader: React.FC = () => {
             repeatCount="indefinite"
           />
           <animate
-            attributeName="fill-opacity"
+            attributeName="fillOpacity"
             from="0.5"
             to="0.5"
             begin="0s"
@@ -66,7 +66,7 @@ const Preloader: React.FC = () => {
             repeatCount="indefinite"
           />
           <animate
-            attributeName="fill-opacity"
+            attributeName="filOpacity"
             from="1"
             to="1"
             begin="0s"
