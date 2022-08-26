@@ -46,15 +46,14 @@ const ProfileStatus: React.FC<ProfileStatusProps> = ({ propStatus, isOwner, upda
         </div>
       )}
       {editMode && (
-        <div>
           <input
+            className={styles.statusInput}
             maxLength={30}
             onChange={onStatusChange}
             autoFocus={true}
             value={status}
             onBlur={deactivateEditMode}
           />
-        </div>
       )}
     </>
   );

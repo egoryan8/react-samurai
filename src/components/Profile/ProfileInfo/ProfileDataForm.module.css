@@ -8,7 +8,6 @@
 
 .input {
   background-color: transparent;
-  border: none;
   border: 1px solid blueviolet;
   border-radius: 5px;
   color: rgb(62, 62, 185);
@@ -16,10 +15,8 @@
   padding: 4px;
 }
 
-.inputProfile,
 .textareaProfile {
   background-color: transparent;
-  border: none;
   border: 1px solid blueviolet;
   padding: 5px;
   color: white;
@@ -49,6 +46,15 @@
   font-size: 18px;
   text-align: center;
   padding: 0 0 5px;
+}
+
+.inputWrapper input {
+  background-color: transparent;
+  border: 1px solid blueviolet;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .checkboxWrapper input {

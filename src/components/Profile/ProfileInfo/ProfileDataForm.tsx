@@ -22,7 +22,6 @@ const ProfileDataForm: React.FC<ProfileDataFormType> = ({ onSubmit, profile }) =
             <div className={styles.inputWrapper}>
               <h2>Изменить имя</h2>
               <Field
-                className={styles.inputProfile}
                 name="fullName"
                 type="text"
                 placeholder={'Введите имя'}

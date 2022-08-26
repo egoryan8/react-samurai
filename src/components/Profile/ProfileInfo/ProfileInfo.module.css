@@ -85,8 +85,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
   opacity: 0;
   border-radius: 50%;
   background-image: url(./Edit.svg);
@@ -165,4 +165,17 @@
   height: 100%;
   padding-right: 70px;
   border-right: 1px solid gray;
+}
+
+.statusInput {
+  background-color: transparent;
+  border: 1px solid blueviolet;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.statusInput:focus {
+  border: 1px solid black;
 }
