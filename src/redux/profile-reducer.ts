@@ -13,7 +13,7 @@ const initialState = {
   status: '',
   newPostText: '',
 };
-const profileReducer = (state = initialState, action: ActionType): initialStateType => {
+const profileReducer = (state = initialState, action: ActionType): InitialStateType => {
   switch (action.type) {
     case 'SN/PROFILE/ADD_POST':
       const newPost = {
@@ -106,6 +106,6 @@ export const saveProfile =
 export default profileReducer;
 
 type getStateType = () => AppStateType;
-type initialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 export type ActionType = InferActionsTypes<typeof actions>;
 type ThunkType = CommonThunkType<ActionType>;

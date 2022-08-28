@@ -12,7 +12,7 @@ const initialState = {
   isFollowing: [] as Array<number>, //Array of users id
 };
 
-const usersReducer = (state = initialState, action: ActionType): initialStateType => {
+const usersReducer = (state = initialState, action: ActionType): InitialStateType => {
   switch (action.type) {
     case 'SN/USERS/TOGGLE_FOLLOW':
       return {
@@ -104,7 +104,7 @@ export const unfollow = (userId: number): ThunkType => {
 
 export default usersReducer;
 
-type initialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 type ActionType = InferActionsTypes<typeof actions>;
 type DispatchType = Dispatch<ActionType>;
 type ThunkType = CommonThunkType<ActionType>;
