@@ -8,3 +8,15 @@
 .profileWrapper {
   padding: 50px 80px;
 }
+
+@media (max-width: 1439px ) {
+  .profileWrapper {
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 1239px ) {
+  .profileWrapper {
+    padding: 50px 20px;
+  }
+}
