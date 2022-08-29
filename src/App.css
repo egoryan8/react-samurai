@@ -1,4 +1,5 @@
 .app-wrapper {
+  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
   overflow: hidden;
   height: 100%;
