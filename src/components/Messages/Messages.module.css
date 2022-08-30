@@ -16,7 +16,12 @@
 .dialog {
   transition: all .4s;
   text-decoration: none;
-  color: black;
+  color: white;
+  font-size: 18px;
+  padding: 5px 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+
 }
 
 .dialog:hover {

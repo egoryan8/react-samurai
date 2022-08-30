@@ -6,13 +6,13 @@
 }
 
 .list {
-  padding: 0;
+  padding: 0 0 0 20px;
   list-style: none;
-  padding-left: 20px;
 }
 
 .list li {
   margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .list li:last-child,
