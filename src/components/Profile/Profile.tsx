@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Profile.module.css';
-import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { ProfileType } from '../../@types/types';
+import MyPosts from "./MyPosts/MyPosts";
 
 type ProfilePropsType = {
   profile: ProfileType;
@@ -34,7 +34,7 @@ const Profile: React.FC<ProfilePropsType> = ({
         savePhoto={savePhoto}
         saveProfile={saveProfile}
       />
-      <MyPostsContainer profile={profile} />
+      <MyPosts profile={profile} />
     </div>
   );
 };

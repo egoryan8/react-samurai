@@ -5,17 +5,24 @@ import { Form, Field } from 'react-final-form';
 import { required } from '../../../utils/validator';
 import Element from '../../../hoc/withValidation';
 import Preloader from '../../Preloader/Preloader';
-import { PostType, ProfileType } from '../../../@types/types';
+import { ProfileType } from '../../../@types/types';
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "../../../redux/redux-store";
+import {actions} from "../../../redux/profile-reducer";
 
 const TextArea = Element('textarea');
 
 type MyPostPropsType = {
   profile: ProfileType;
-  postsData: Array<PostType>;
-  addPostProps: (post: string) => void;
 };
 
-const MyPosts: React.FC<MyPostPropsType> = ({ profile, postsData, addPostProps }) => {
+const MyPosts: React.FC<MyPostPropsType> = ({ profile }) => {
+  const dispatch = useDispatch();
+  const postsData = useSelector((state: AppStateType) => state.profileReducer.postsData);
+  const addPostProps = (post: string) => dispatch(actions.addPostActionCreator(post));
+
+
+
   const postElements = profile ? (
     postsData.map((post) => (
       <Post
