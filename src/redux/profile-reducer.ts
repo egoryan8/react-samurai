@@ -9,7 +9,7 @@ const initialState = {
     { id: 2, message: 'Hello, World', likesCount: 10 },
     { id: 1, message: 'Its my first post!', likesCount: 3 },
   ] as Array<PostType>,
-  profile: null as ProfileType | null,
+  profile: null as unknown as ProfileType,
   status: '',
   newPostText: '',
 };

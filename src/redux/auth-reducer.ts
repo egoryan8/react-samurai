@@ -48,7 +48,7 @@ export const login =
   async (dispatch) => {
     const data = await authAPI.login(email, password, rememberMe);
     if (data.resultCode === ResultCodeEnum.SUCCESS) {
-      dispatch(getAuthData());
+      await dispatch(getAuthData());
     }
   };
 

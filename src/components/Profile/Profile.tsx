@@ -3,9 +3,11 @@ import styles from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { ProfileType } from '../../@types/types';
 import MyPosts from "./MyPosts/MyPosts";
+import {useSelector} from "react-redux";
+import {AppStateType} from "../../redux/redux-store";
 
 type ProfilePropsType = {
-  profile: ProfileType;
+  profile: ProfileType | null;
   isOwner: boolean;
   status: string;
   authorizedUserId: number;
@@ -17,13 +19,12 @@ type ProfilePropsType = {
 };
 
 const Profile: React.FC<ProfilePropsType> = ({
-  status,
   updateStatus,
   isOwner,
   savePhoto,
   saveProfile,
-  profile,
 }) => {
+  const {profile, status} = useSelector((state: AppStateType) => state.profileReducer)
   return (
     <div className={styles.profileWrapper}>
       <ProfileInfo

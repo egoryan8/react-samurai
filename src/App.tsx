@@ -1,35 +1,37 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { initializeApp } from './redux/app-reducer';
 import { Routes, Route } from 'react-router-dom';
 import { AppStateType } from './redux/redux-store';
 
-import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
-import Login from './components/Login/Login';
+import {Login} from './components/Login/Login';
 import Preloader from './components/Preloader/Preloader';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import './App.css';
+import Header from "./components/Header/Header";
 
-type PropsType = {
-  initializeApp: () => void;
-  initialized: boolean;
-};
-class App extends React.Component<PropsType> {
-  componentDidMount() {
-    this.props.initializeApp();
+export const App: React.FC = () =>  {
+  const dispatch = useDispatch();
+  const initialized = useSelector((state: AppStateType) => state.appReducer.initialized)
+  const initializeApplication = () => {
+    // @ts-ignore
+    dispatch(initializeApp());
   }
-  render() {
-    if (!this.props.initialized) return <Preloader />;
+  React.useEffect(() => {
+    initializeApplication();
+  }, [])
+
+    if (!initialized) return <Preloader />;
 
     return (
       <div className="app-wrapper">
-        <HeaderContainer />
+        <Header />
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
@@ -51,10 +53,4 @@ class App extends React.Component<PropsType> {
       </div>
     );
   }
-}
 
-const mapStateToProps = (state: AppStateType) => ({
-  initialized: state.appReducer.initialized,
-});
-
-export default connect(mapStateToProps, { initializeApp })(App);

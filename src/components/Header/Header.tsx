@@ -1,15 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "../../redux/redux-store";
+import {logout} from "../../redux/auth-reducer";
 
-type HeaderProps = {
-  isAuth: boolean;
-  login: string | null;
+const Header: React.FC = () => {
+  const dispatch = useDispatch();
 
-  logout: () => void;
-};
-
-const Header: React.FC<HeaderProps> = ({ isAuth, login, logout }) => {
+  const isAuth = useSelector((state: AppStateType) => state.authReducer.isAuth);
+  const login = useSelector((state: AppStateType) => state.authReducer.login);
+  const onLogout = () => {
+    // @ts-ignore
+    dispatch(logout())
+  }
   return (
     <header className={styles.header}>
       <div className={styles.logoWrapper}>
@@ -19,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ isAuth, login, logout }) => {
       <div className={styles.loginWrapper}>
         {isAuth ? (
           <div>
-            <span className={styles.login}>{login}</span> <button onClick={logout}>Выйти</button>{' '}
+            <span className={styles.login}>{login}</span> <button onClick={onLogout}>Выйти</button>{' '}
           </div>
         ) : (
           <div>

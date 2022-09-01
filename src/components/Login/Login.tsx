@@ -3,19 +3,21 @@ import { Form, Field } from 'react-final-form';
 import styles from './Login.module.css';
 import { required } from '../../utils/validator';
 import Element from '../../hoc/withValidation';
-import { connect } from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import { login } from '../../redux/auth-reducer';
 import { Navigate } from 'react-router-dom';
 import { AppStateType } from '../../redux/redux-store';
 const Input = Element('input');
 
-type LoginFormPropsType = {
-  login: (email: string, password: string, rememberMe: boolean) => void;
-};
+const LoginForm: React.FC = () => {
+  const dispatch = useDispatch();
 
-const LoginForm: React.FC<LoginFormPropsType> = ({ login }) => {
+  const onLogin = (email: string, password: string, rememberMe: boolean) => {
+    // @ts-ignore
+    dispatch(login(email, password, rememberMe));
+  }
   const onSubmit = (formData: any) => {
-    login(formData.email, formData.password, formData.rememberMe);
+    onLogin(formData.email, formData.password, formData.rememberMe);
   };
 
   return (
@@ -54,25 +56,15 @@ const LoginForm: React.FC<LoginFormPropsType> = ({ login }) => {
   );
 };
 
-type LoginPropsType = {
-  login: (email: string, password: string, rememberMe: boolean) => void;
-  isAuth: boolean;
-};
-
-const Login: React.FC<LoginPropsType> = ({ isAuth, login }) => {
+export const Login: React.FC = () => {
+  const isAuth = useSelector((state: AppStateType) => state.authReducer.isAuth)
   if (isAuth) {
     return <Navigate to="/profile" />;
   }
   return (
     <div className={styles.wrapper}>
       <h1>Авторизоваться</h1>
-      <LoginForm login={login} />
+      <LoginForm/>
     </div>
   );
 };
-
-const mapStateToProps = (state: AppStateType) => ({
-  isAuth: state.authReducer.isAuth,
-});
-
-export default connect(mapStateToProps, { login })(Login);

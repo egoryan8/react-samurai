@@ -21,8 +21,6 @@ const MyPosts: React.FC<MyPostPropsType> = ({ profile }) => {
   const postsData = useSelector((state: AppStateType) => state.profileReducer.postsData);
   const addPostProps = (post: string) => dispatch(actions.addPostActionCreator(post));
 
-
-
   const postElements = profile ? (
     postsData.map((post) => (
       <Post
