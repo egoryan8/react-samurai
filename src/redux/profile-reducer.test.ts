@@ -7,7 +7,7 @@ const state: InitialStateType = {
     { id: 2, message: 'Hello, World', likesCount: 10 },
     { id: 1, message: 'Its my first post!', likesCount: 3 },
   ],
-  profile: null as ProfileType | null,
+  profile: null as unknown as ProfileType,
   status: '',
   newPostText: '',
 };
