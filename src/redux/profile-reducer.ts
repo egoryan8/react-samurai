@@ -98,7 +98,7 @@ export const saveProfile =
     const res = await profileAPI.saveProfile(profile);
     if (userId) {
       if (res.data.resultCode === 0) {
-        dispatch(getProfile(userId));
+        await dispatch(getProfile(userId));
       }
     }
   };
