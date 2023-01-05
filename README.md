@@ -1,6 +1,6 @@
 # `React Samurai`
 ## ✍️ Описание ✍️
-React Samurai - социальная сеть для Web-разработчиков.
+React Samurai - социальная сеть для Web-разработчиков на React / Redux / TypeScript.
 ## ⚒️ Используемые технологии: ⚒️
 
 - **React**
